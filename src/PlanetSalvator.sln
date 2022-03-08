@@ -1,0 +1,19 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlanetSalvator", "PlanetSalvator\PlanetSalvator.csproj", "{EA94DFAC-FB5F-43F4-BFA0-D5D2CA94AC37}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlanetSalvator.Api", "PlanetSalvator.Api\PlanetSalvator.Api.csproj", "{BDA35A08-BBE0-46AF-AEE8-8379EAC4CC2F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EA94DFAC-FB5F-43F4-BFA0-D5D2CA94AC37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA94DFAC-FB5F-43F4-BFA0-D5D2CA94AC37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDA35A08-BBE0-46AF-AEE8-8379EAC4CC2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDA35A08-BBE0-46AF-AEE8-8379EAC4CC2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+EndGlobal
