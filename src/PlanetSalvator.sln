@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32210.308
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlanetSalvator.Api", "PlanetSalvator.Api\PlanetSalvator.Api.csproj", "{BDA35A08-BBE0-46AF-AEE8-8379EAC4CC2F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlanetSalvator", "PlanetSalvator\PlanetSalvator.csproj", "{EA94DFAC-FB5F-43F4-BFA0-D5D2CA94AC37}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlanetSalvator.Api", "PlanetSalvator.Api\PlanetSalvator.Api.csproj", "{BDA35A08-BBE0-46AF-AEE8-8379EAC4CC2F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlanetSalvator", "PlanetSalvator\PlanetSalvator.csproj", "{D3B1491D-3FC5-4CD6-A6BA-1A9D9D33B7EB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,9 +13,19 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{EA94DFAC-FB5F-43F4-BFA0-D5D2CA94AC37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EA94DFAC-FB5F-43F4-BFA0-D5D2CA94AC37}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BDA35A08-BBE0-46AF-AEE8-8379EAC4CC2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{BDA35A08-BBE0-46AF-AEE8-8379EAC4CC2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDA35A08-BBE0-46AF-AEE8-8379EAC4CC2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDA35A08-BBE0-46AF-AEE8-8379EAC4CC2F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3B1491D-3FC5-4CD6-A6BA-1A9D9D33B7EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3B1491D-3FC5-4CD6-A6BA-1A9D9D33B7EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3B1491D-3FC5-4CD6-A6BA-1A9D9D33B7EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3B1491D-3FC5-4CD6-A6BA-1A9D9D33B7EB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9DB64CD0-623C-498B-8FB4-1E219EDB5589}
 	EndGlobalSection
 EndGlobal
