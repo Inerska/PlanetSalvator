@@ -1,3 +1,4 @@
-src/PlanetSalvator.Api/.idea
-src/PlanetSalvator.Api/obj
-src/PlanetSalvator.Api/bin
+.idea
+obj
+bin
+
