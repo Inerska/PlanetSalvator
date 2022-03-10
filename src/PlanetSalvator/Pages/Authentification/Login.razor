@@ -1,0 +1,26 @@
+﻿@page "/Login"
+
+<Layout ShowFooter="false" IsFullSide="true">
+    <Header>
+    </Header>
+    <Side>
+        <div class="text-center side bg-black h-screen">Side</div>
+    </Side>
+    <Main>
+        <div class="text-center main bg-black h-screen">
+            <ValidateForm Model="@_userLoginModel">
+                <div class="row g-3">
+                    <div class="col-12 col-sm-6">
+                        <BootstrapInput TValue="string" @bind-Value="_userLoginModel.EmailAddress" PlaceHolder="Please type an email address..."/>
+                    </div>
+                    <div class="col-12 col-sm-6">
+                        <BootstrapInput TValue="string" type="password" @bind-Value="_userLoginModel.Password" PlaceHolder="Please type a password..."/>
+                    </div>
+                    <div class="col-12">
+                        <Button ButtonType="@ButtonType.Submit" Text="Submit"/>
+                    </div>
+                </div>
+            </ValidateForm>
+        </div>
+    </Main>
+</Layout>
