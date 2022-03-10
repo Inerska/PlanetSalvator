@@ -10,7 +10,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "post": "tailwindcss -i ./Styles/tailwindcss -o ./wwwroot/app.css"
+    "post": "tailwindcss -i ./Styles/tailwind.css -o ./wwwroot/app.css"
   },
   "author": "",
   "license": "ISC",
