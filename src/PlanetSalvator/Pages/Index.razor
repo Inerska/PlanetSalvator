@@ -2,8 +2,7 @@
 
 <PageTitle>Index</PageTitle>
 
-<h1>Clean Blazor yeah okay !</h1>
-
+<!--
 <section class="text-gray-600 body-font">
     <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
         <div class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
@@ -24,11 +23,74 @@
         </div>
     </div>
 </section>
+-->
+<!-- component -->
+<!-- This is an example component 
+    Instagram: ccornejo__ -->
+<div class='grid grid-cols-12'>
+        <div class="col-span-4 text-white font-sans font-bold bg-black min-h-screen pl-7">
+            <div class="grid grid-rows-6 grid-flow-col min-h-screen items-center justify-items-start">
+                <div class="row-span-4 row-start-2 text-4xl">
+                    Sign In                    
+                    <div class="pt-10 pr-20">                        
+                        <label class="text-sm font-sans font-medium">
+                            Username
+                        </label>
+                        <input 
+                            type="text" 
+                            name="username" 
+                            placeholder="Write your username" 
+                            class="w-full bg-black py-3 px-12 border hover: border-gray-500 rounded shadow text-base font-sans"/>                            
+                    </div>
+                    <div class="pt-2 pr-20">
+                        <label class="text-sm font-sans font-medium">
+                            Password
+                        </label>
+                        <input 
+                            type="password" 
+                            name="password" 
+                            placeholder="Write your password" 
+                            class=" w-full bg-black py-3 px-12 border hover: border-gray-500 rounded shadow text-base font-sans"/>
+                        <a href="" class="text-sm font-sans font-medium text-gray-600 underline">
+                            Forgot password?
+                        </a>
+                    </div>
+                    <!-- Button -->
+                    <div class="text-sm font-sans font-medium w-full pr-20 pt-14">
+                        <a href="/login"><button 
+                            type="button"   
+                            class="text-center w-full py-4 bg-blue-700 hover:bg-blue-400 rounded-md text-white">
+                                SIGN IN
+                        </button></a>
+                    </div>
+                </div>
+                <!-- Text -->
+                <a href="" class="text-sm font-sans font-medium text-gray-400 underline">
+                    Don´t have an account? Sign up
+                </a>
+            </div>         
+        </div>
 
+        <!-- Second column image -->
+        <div class="banner col-span-8 text-white font-sans font-bold">
+            <!-- Aquí iría algún comentario -->
+        </div>    
+</div>
+
+
+
+<style>
+    .banner {
+        background: url( 'https://s1.1zoom.me/b6058/448/Dogs_Svetlana_Shelemeteva_Hug_Little_girls_568770_1920x1080.jpg' );
+        background-repeat: no-repeat;
+        background-size: cover        
+    }
+</style>
+<!--
 <Steps>
     <Step Title="Step 1" Space="25%" Status="StepStatus.Success"></Step>
     <Step Title="Step 2" Space="25%" Status="StepStatus.Process" StepIndex="1"></Step>
     <Step Title="Step 3" Space="25%" Status="StepStatus.Error" StepIndex="2"></Step>
     <Step Title="Step 4" Space="25%" Status="StepStatus.Finish" StepIndex="3"></Step>
     <Step Title="Step 5" Space="25%" StepIndex="4" IsLast="true"></Step>
-</Steps>
+</Steps>-->
