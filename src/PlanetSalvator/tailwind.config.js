@@ -3,8 +3,8 @@ module.exports = {
         './wwwroot/index.html',
         './**/*.razor',
     ],
-  theme: {
-    extend: {},
-  },
-  plugins: [],
+    theme: {
+        extend: {},
+    },
+    plugins: [],
 }
