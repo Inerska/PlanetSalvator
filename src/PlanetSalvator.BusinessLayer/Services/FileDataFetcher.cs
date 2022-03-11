@@ -9,13 +9,13 @@ namespace PlanetSalvator.BusinessLayer.Services;
 public class FileDataFetcher
     : IDataFetcher
 {
-    public async Task<Optional<Stream>> TryFetchAsync()
+    public async Task<Optional<Stream?>> TryFetchAsync()
     {
         const string endpoint = "https://hubeau.eaufrance.fr/api/v1/temperature/chronique.csv";
         var client = new HttpClient();
         var response = await client.GetAsync(endpoint);
         var stream = await response.Content.ReadAsStreamAsync();
         
-        return new Optional<Stream>(stream);
+        return new Optional<Stream?>(stream);
     }
 }

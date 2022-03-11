@@ -10,54 +10,70 @@ namespace PlanetSalvator.BusinessLayer;
 [StructLayout(LayoutKind.Sequential)]
 public struct Optional<T>
 {
-    private T _value;
+    /// <summary>
+    /// Gets a value indicating whether this instance is empty.
+    /// </summary>
+    public bool HasValue { get; }
+    
+    /// <summary>
+    /// Gets the value.
+    /// </summary>
+    public T? Value { get; }
 
-    public bool HasValue { get; private set; }
-
-    public T Value
-    {
-        get
-        {
-            if (!HasValue)
-                throw new InvalidOperationException("Optional has no value");
-            
-            return Value;
-        }
-
-        set
-        {
-            _value = value;
-            HasValue = true;
-        }
-    }
-
-    public Optional(T value)
+    /// <summary>
+    /// Initializes a new instance of the <see cref="Optional{T}"/> struct.
+    /// </summary>
+    /// <param name="value">The value, that is default by default.</param>
+    public Optional(T? value = default)
     {
         HasValue = true;
-        _value = value;
+        Value = value;
     }
-
-    public static implicit operator Optional<T>(T value)
+    
+    /// <summary>
+    /// Implicitly converts the specified value.
+    /// </summary>
+    /// <param name="value">The value</param>
+    /// <returns>The optional value</returns>
+    public static implicit operator Optional<T?>(T value)
     {
-        return new Optional<T>(value);
+        return new Optional<T?>(value);
     }
 
-    public static implicit operator T(Optional<T> optional)
+    /// <summary>
+    /// Implicitly converts the specified value.
+    /// </summary>
+    /// <param name="optional">Optional instance</param>
+    /// <returns>The optional value</returns>
+    public static implicit operator T?(Optional<T?> optional)
     {
         return optional.Value;
     }
     
-    public static Optional<T> Empty()
+    /// <summary>
+    /// Initialise an empty new instance of the <see cref="Optional{T}"/> struct.
+    /// </summary>
+    /// <returns>Empty instance of <see cref="Optional{T}"/> struct.</returns>
+    public static Optional<T?> Empty()
     {
-        return new Optional<T>();
+        return new Optional<T?>();
     }
     
-    public static Optional<T> Of(T value)
+    /// <summary>
+    /// Initialise a new instance of the <see cref="Optional{T}"/> struct.
+    /// </summary>
+    /// <param name="value">The value.</param>
+    /// <returns>Empty instance of <see cref="Optional{T}"/> struct.</returns>
+    public static Optional<T?> Of(T value)
     {
-        return new Optional<T>(value);
+        return new Optional<T?>(value);
     }
     
-    public static Optional<T> OfNullable(T value)
+    /// <summary>
+    /// Initialise a new instance of the <see cref="Optional{T}"/> struct.
+    /// </summary>
+    /// <returns>Empty Optional if the value passed is null, otherwise the value passed.</returns>
+    public static Optional<T?> OfNullable(T value)
     {
         return value is null 
             ? Empty() 

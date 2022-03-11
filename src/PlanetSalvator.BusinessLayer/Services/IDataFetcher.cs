@@ -6,5 +6,5 @@ namespace PlanetSalvator.BusinessLayer.Services;
 
 public interface IDataFetcher
 {
-    Task<Optional<Stream>> TryFetchAsync();
+    Task<Optional<Stream?>> TryFetchAsync();
 }
