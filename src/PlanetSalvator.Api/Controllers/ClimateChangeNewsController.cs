@@ -10,10 +10,14 @@ public sealed class ClimateChangeNewsController
 {
 
     private readonly ClimateChangeNewsFetcherService _fetcherService;
+    private readonly ILogger<ClimateChangeNewsController> _logger;
 
-    public ClimateChangeNewsController(ClimateChangeNewsFetcherService fetcherService)
+    public ClimateChangeNewsController(
+        ClimateChangeNewsFetcherService fetcherService,
+        ILogger<ClimateChangeNewsController> logger)
     {
         _fetcherService = fetcherService;
+        _logger = logger;
     }
 
     [HttpGet]
@@ -21,7 +25,7 @@ public sealed class ClimateChangeNewsController
     {
         //TODO
         // _fetcherService.FetchFromWebRequestWithRapidHeadersAsync<>();
-        
+        _logger.LogDebug("Get()");
         return Ok();
     }
 }
