@@ -16,7 +16,7 @@ public class FileDataFetcherTests
     public static async Task FileDataFetcher_GetFileData_Returns_FileData()
     {
         // Arrange
-        var fileDataFetcher = new FileDataFetcher();
+        var fileDataFetcher = new FileDataFetcherService();
 
         // Act
         var fileData = await fileDataFetcher.TryFetchAsync();

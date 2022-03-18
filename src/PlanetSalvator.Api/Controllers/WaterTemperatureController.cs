@@ -8,12 +8,12 @@ namespace PlanetSalvator.Api.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class WaterTemperatureControler
+public sealed class WaterTemperatureController
     : ControllerBase
 {
     private readonly ILogger _logger;
 
-    public WaterTemperatureControler(ILogger logger)
+    public WaterTemperatureController(ILogger logger)
     {
         _logger = logger;
     }
