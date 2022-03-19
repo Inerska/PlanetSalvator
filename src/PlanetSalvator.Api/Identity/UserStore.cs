@@ -71,10 +71,11 @@ public class UserStore
 
     public async Task<User> FindByNameAsync(string normalizedUserName, CancellationToken cancellationToken)
     {
-        return await _context.Users
+        throw new NotImplementedException();
+        /*return await _context.Users
             .Includes(u => u.UserRoles)
             .ThenInclude(ur => ur.Role)
-            .FirstOrDefaultAsync(u => u.Username == normalizedUserName, cancellationToken);
+            .FirstOrDefaultAsync(u => u.Username == normalizedUserName, cancellationToken);*/
     }
 
     public Task SetPasswordHashAsync(User user, string passwordHash, CancellationToken cancellationToken)

@@ -4,27 +4,22 @@
 
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.IdentityModel.Protocols.OpenIdConnect;
 using OpenIddict.Abstractions;
 using PlanetSalvator.Api.Identity;
 using PlanetSalvator.BusinessLayer.Services;
 using PlanetSalvator.Infrastructure.Persistence.Contexts;
-using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<ApplicationDbContext>(optionsBuilder =>
 {
     var connectionString = Environment.GetEnvironmentVariable("DefaultConnectionString");
-    ArgumentNullException.ThrowIfNull(connectionString, nameof(connectionString));    
-    
-    optionsBuilder.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
+    ArgumentNullException.ThrowIfNull(connectionString, nameof(connectionString));
+
+    optionsBuilder.UseNpgsql(connectionString);
     optionsBuilder.UseOpenIddict();
 });
 
@@ -86,7 +81,6 @@ builder.Services.AddScoped<IDataFetcherService, ClimateChangeNewsFetcherService>
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
