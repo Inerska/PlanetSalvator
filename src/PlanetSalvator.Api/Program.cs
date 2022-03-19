@@ -2,8 +2,10 @@
 // Licensed under the GNU General Public License v3.0.
 // See the LICENSE file in the project root for more information.
 
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Protocols.OpenIdConnect;
+using OpenIddict.Abstractions;
 using PlanetSalvator.BusinessLayer.Services;
 using PlanetSalvator.Infrastructure.Persistence.Contexts;
 using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
@@ -46,6 +48,13 @@ builder.Services.AddDbContext<ApplicationDbContext>(optionsBuilder =>
     
     optionsBuilder.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
     optionsBuilder.UseOpenIddict();
+});
+
+builder.Services.Configure<IdentityOptions>(options =>
+{
+    options.ClaimsIdentity.UserIdClaimType = OpenIddictConstants.Claims.Name;
+    options.ClaimsIdentity.UserIdClaimType = OpenIddictConstants.Claims.Subject;
+    options.ClaimsIdentity.RoleClaimType = OpenIddictConstants.Claims.Role;
 });
 
 builder.Services.AddScoped<IDataFetcherService, ClimateChangeNewsFetcherService>();
