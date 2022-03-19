@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Protocols.OpenIdConnect;
 using OpenIddict.Abstractions;
+using PlanetSalvator.Api.Identity;
 using PlanetSalvator.BusinessLayer.Services;
 using PlanetSalvator.Infrastructure.Persistence.Contexts;
 using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
@@ -74,6 +75,12 @@ builder.Services.AddAuthentication(options =>
     options.DefaultChallengeScheme = OpenIddictConstants.Schemes.Bearer;
 });
 
+builder.Services.AddIdentity<User, Role>()
+    .AddSignInManager()
+    .AddUserStore<UserStore>()
+    .AddRoleStore<RoleStore>()
+    .AddUserManager<UserManager<User>>();
+
 builder.Services.AddScoped<IDataFetcherService, ClimateChangeNewsFetcherService>();
 
 
@@ -88,6 +95,9 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseRouting();
+
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
