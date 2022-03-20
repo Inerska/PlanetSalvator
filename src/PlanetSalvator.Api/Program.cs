@@ -5,7 +5,6 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using OpenIddict.Abstractions;
-using PlanetSalvator.Api.Identity;
 using PlanetSalvator.BusinessLayer.Services;
 using PlanetSalvator.Infrastructure.Persistence.Contexts;
 
@@ -16,11 +15,13 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<ApplicationDbContext>(optionsBuilder =>
 {
-    var connectionString = Environment.GetEnvironmentVariable("DefaultConnectionString");
+    var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
     ArgumentNullException.ThrowIfNull(connectionString, nameof(connectionString));
 
-    optionsBuilder.UseNpgsql(connectionString);
-    optionsBuilder.UseOpenIddict();
+    optionsBuilder.UseNpgsql(
+        connectionString,
+        x => x.MigrationsAssembly("PlanetSalvator.Domain"));
+    optionsBuilder.UseOpenIddict<string>();
 });
 
 builder.Services.Configure<IdentityOptions>(options =>
@@ -70,11 +71,9 @@ builder.Services.AddAuthentication(options =>
     options.DefaultChallengeScheme = OpenIddictConstants.Schemes.Bearer;
 });
 
-builder.Services.AddIdentity<User, Role>()
-    .AddSignInManager()
-    .AddUserStore<UserStore>()
-    .AddRoleStore<RoleStore>()
-    .AddUserManager<UserManager<User>>();
+builder.Services.AddIdentity<IdentityUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = true)
+    .AddEntityFrameworkStores<ApplicationDbContext>()
+    .AddDefaultTokenProviders();
 
 builder.Services.AddScoped<IDataFetcherService, ClimateChangeNewsFetcherService>();
 

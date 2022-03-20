@@ -10,4 +10,8 @@
       <Folder Include="Entities" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\PlanetSalvator.Infrastructure.Persistence\PlanetSalvator.Infrastructure.Persistence.csproj" />
+    </ItemGroup>
+
 </Project>
