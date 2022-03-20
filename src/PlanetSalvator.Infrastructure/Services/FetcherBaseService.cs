@@ -1,6 +1,6 @@
 using Newtonsoft.Json;
 
-namespace PlanetSalvator.BusinessLayer.Services;
+namespace PlanetSalvator.Infrastructure.Services;
 
 public abstract class FetcherBaseService
 {

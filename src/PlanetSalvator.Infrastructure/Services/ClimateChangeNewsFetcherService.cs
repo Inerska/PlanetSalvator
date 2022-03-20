@@ -1,4 +1,4 @@
-namespace PlanetSalvator.BusinessLayer.Services;
+namespace PlanetSalvator.Infrastructure.Services;
 
 public class ClimateChangeNewsFetcherService
     : FetcherBaseService, IDataFetcherService

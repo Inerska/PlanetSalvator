@@ -5,10 +5,10 @@
 using System;
 using System.Threading.Tasks;
 using NUnit.Framework;
-using PlanetSalvator.BusinessLayer.Services;
+using PlanetSalvator.Infrastructure.Services;
 using Shouldly;
 
-namespace PlanetSalvator.BusinessLayer.Test.Services;
+namespace PlanetSalvator.Infrastructure.Tests.Services;
 
 [TestFixture]
 public class FileDataFetcherTests

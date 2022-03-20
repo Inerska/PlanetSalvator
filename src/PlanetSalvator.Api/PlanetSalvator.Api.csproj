@@ -27,9 +27,10 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\PlanetSalvator.BusinessLayer\PlanetSalvator.BusinessLayer.csproj" />
+      <ProjectReference Include="..\PlanetSalvator.Infrastructure\PlanetSalvator.Infrastructure.csproj" />
       <ProjectReference Include="..\PlanetSalvator.Domain\PlanetSalvator.Domain.csproj" />
       <ProjectReference Include="..\PlanetSalvator.Infrastructure.Persistence\PlanetSalvator.Infrastructure.Persistence.csproj" />
+      <ProjectReference Include="..\PlanetSalvator\PlanetSalvator.csproj" />
     </ItemGroup>
 
 </Project>

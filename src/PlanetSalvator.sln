@@ -5,9 +5,9 @@ VisualStudioVersion = 17.2.32210.308
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlanetSalvator.Api", "PlanetSalvator.Api\PlanetSalvator.Api.csproj", "{BDA35A08-BBE0-46AF-AEE8-8379EAC4CC2F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlanetSalvator.BusinessLayer", "PlanetSalvator.BusinessLayer\PlanetSalvator.BusinessLayer.csproj", "{9E1AF902-3B31-4397-9C2B-887C2C18248A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlanetSalvator.Infrastructure", "PlanetSalvator.Infrastructure\PlanetSalvator.Infrastructure.csproj", "{9E1AF902-3B31-4397-9C2B-887C2C18248A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlanetSalvator.BusinessLayer.Test", "..\test\PlanetSalvator.BusinessLayer.Test\PlanetSalvator.BusinessLayer.Test.csproj", "{E16094CF-7574-49A0-8345-340A191984AD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlanetSalvator.Infrastructure.Tests", "..\test\PlanetSalvator.Infrastructure.Tests\PlanetSalvator.Infrastructure.Tests.csproj", "{E16094CF-7574-49A0-8345-340A191984AD}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlanetSalvator.Infrastructure.Persistence", "PlanetSalvator.Infrastructure.Persistence\PlanetSalvator.Infrastructure.Persistence.csproj", "{64AED463-10F4-49F9-870C-A8FC11A15E03}"
 EndProject

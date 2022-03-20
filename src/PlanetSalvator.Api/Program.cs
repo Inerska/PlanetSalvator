@@ -5,7 +5,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using OpenIddict.Abstractions;
-using PlanetSalvator.BusinessLayer.Services;
+using PlanetSalvator.Infrastructure.Services;
 using PlanetSalvator.Infrastructure.Persistence.Contexts;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -78,6 +78,7 @@ builder.Services.AddIdentity<IdentityUser, IdentityRole>(options => options.Sign
 
 builder.Services.AddScoped<IDataFetcherService, ClimateChangeNewsFetcherService>();
 
+await OpenIdConnectRegistration.RegisterApplicationAsync(builder.Services.BuildServiceProvider());
 
 var app = builder.Build();
 

@@ -4,16 +4,15 @@
 
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
+using Microsoft.Extensions.DependencyInjection;
 using PlanetSalvator;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
 builder.RootComponents.Add<HeadOutlet>("head::after");
 
-builder.Services.AddScoped<CustomAuthentificationMessageHandler>();
 builder.Services.AddScoped(sp => new HttpClient {BaseAddress = new Uri(builder.HostEnvironment.BaseAddress)});
-builder.Services.AddHttpClient("api", client => client.BaseAddress = new Uri("https://demo.indentityserver.io"))
-    .AddHttpMessageHandler<CustomAuthentificationMessageHandler>();
+builder.Services.AddHttpClient("api", client => client.BaseAddress = new Uri("https://demo.indentityserver.io"));
 builder.Services.AddScoped(services => services.GetRequiredService<IHttpClientFactory>()
     .CreateClient("api"));
 

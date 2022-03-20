@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using PlanetSalvator.BusinessLayer.Services;
+using PlanetSalvator.Infrastructure.Services;
 
 namespace PlanetSalvator.Api.Controllers;
 
