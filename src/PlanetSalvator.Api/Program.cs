@@ -75,6 +75,7 @@ builder.Services.AddIdentity<IdentityUser, IdentityRole>(options => options.Sign
     .AddEntityFrameworkStores<ApplicationDbContext>()
     .AddDefaultTokenProviders();
 
+
 builder.Services.AddScoped<IDataFetcherService, ClimateChangeNewsFetcherService>();
 
 
