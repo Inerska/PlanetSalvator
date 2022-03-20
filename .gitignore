@@ -4,3 +4,6 @@ obj
 bin
 node_modules
 launchSettings.json
+appsettings.json
+appsettings.Development.json
+appsettings.Production.json
