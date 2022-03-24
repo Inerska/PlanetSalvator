@@ -4,9 +4,4 @@ obj
 bin
 node_modules
 launchSettings.json
-appsettings.json
-appsettings.Development.json
-appsettings.Production.json
-/src/PlanetSalvator.Api/appsettings.json
-/src/PlanetSalvator.Api/appsettings.Development.json
 /src/PlanetSalvator.IdentityProvider/tempkey.jwk
