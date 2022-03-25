@@ -15,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\PlanetSalvator.Infrastructure\PlanetSalvator.Infrastructure.csproj" />
     <ProjectReference Include="..\Shared\PlanetSalvator.Shared.csproj" />
   </ItemGroup>
 
