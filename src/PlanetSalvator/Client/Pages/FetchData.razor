@@ -1,9 +1,10 @@
 ﻿@page "/fetchdata"
-@using PlanetSalvator.Shared
 @using Microsoft.AspNetCore.Authorization
 @using Microsoft.AspNetCore.Components.WebAssembly.Authentication
+@using PlanetSalvator.Infrastructure.Models.NaturalEvent
+@using PlanetSalvator.Shared
 @attribute [Authorize]
-@inject HttpClient _http
+@inject HttpClient Http
 
 <PageTitle>Weather forecast</PageTitle>
 
@@ -11,50 +12,47 @@
 
 <p>This component demonstrates fetching data from the server.</p>
 
-@if (_forecasts == null)
+@if (forecasts == null)
 {
-    <p>
-        <em>Loading...</em>
-    </p>
+    <p><em>Loading...</em></p>
 }
 else
 {
     <table class="table">
         <thead>
-        <tr>
-            <th>Date</th>
-            <th>Temp. (C)</th>
-            <th>Temp. (F)</th>
-            <th>Summary</th>
-        </tr>
+            <tr>
+                <th>Date</th>
+                <th>Temp. (C)</th>
+                <th>Temp. (F)</th>
+                <th>Summary</th>
+            </tr>
         </thead>
         <tbody>
-        @foreach (var forecast in _forecasts)
-        {
-            <tr>
-                <td>@forecast.Date.ToShortDateString()</td>
-                <td>@forecast.TemperatureC</td>
-                <td>@forecast.TemperatureF</td>
-                <td>@forecast.Summary</td>
-            </tr>
-        }
+            @foreach (var forecast in forecasts)
+            {
+                <tr>
+                    <td>@forecast.Description</td>
+                    <td>@forecast.Events</td>
+                    <td>@forecast.Link</td>
+                    <td>@forecast.Title</td>
+                </tr>
+            }
         </tbody>
     </table>
 }
 
 @code {
-    private WeatherForecast[]? _forecasts;
+    private NaturalEvent[]? forecasts;
 
     protected override async Task OnInitializedAsync()
     {
         try
         {
-            _forecasts = await _http.GetFromJsonAsync<WeatherForecast[]>("WeatherForecast");
+            forecasts = await Http.GetFromJsonAsync<NaturalEvent[]>("WeatherForecast");
         }
         catch (AccessTokenNotAvailableException exception)
         {
             exception.Redirect();
         }
     }
-
 }

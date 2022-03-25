@@ -1,5 +1,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using PlanetSalvator.Infrastructure.Models.NaturalEvent;
+using PlanetSalvator.Infrastructure.Services;
 using PlanetSalvator.Shared;
 
 namespace PlanetSalvator.Server.Controllers
@@ -9,28 +11,27 @@ namespace PlanetSalvator.Server.Controllers
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
     {
-        private static readonly string[] Summaries = new[]
-        {
-        "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-    };
-
         private readonly ILogger<WeatherForecastController> _logger;
+        private readonly NaturalEventsFetcherService _service;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        public WeatherForecastController(
+            ILogger<WeatherForecastController> logger,
+            NaturalEventsFetcherService service)
         {
             _logger = logger;
+            _service = service;
         }
 
         [HttpGet]
-        public IEnumerable<WeatherForecast> Get()
+        public async Task<IEnumerable<NaturalEvent>?> Get()
         {
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-            {
-                Date = DateTime.Now.AddDays(index),
-                TemperatureC = Random.Shared.Next(-20, 55),
-                Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-            })
-            .ToArray();
+            var data = await _service.TryFetchDataAsync();
+
+            _logger.LogDebug($"Get() - Failed: {data.HasValue}");
+
+            return data.HasValue
+                ? data.Value
+                : Enumerable.Empty<NaturalEvent>();
         }
     }
 }

@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlanetSalvator.Client", "Pl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlanetSalvator.Shared", "PlanetSalvator\Shared\PlanetSalvator.Shared.csproj", "{6AB134CB-6F06-4857-909B-B29554F188D4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlanetSalvator.Infrastructure", "PlanetSalvator.Infrastructure\PlanetSalvator.Infrastructure.csproj", "{D1DCAF65-105F-4E9F-B401-EB5FBD990D90}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{6AB134CB-6F06-4857-909B-B29554F188D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6AB134CB-6F06-4857-909B-B29554F188D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6AB134CB-6F06-4857-909B-B29554F188D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1DCAF65-105F-4E9F-B401-EB5FBD990D90}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1DCAF65-105F-4E9F-B401-EB5FBD990D90}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1DCAF65-105F-4E9F-B401-EB5FBD990D90}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1DCAF65-105F-4E9F-B401-EB5FBD990D90}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

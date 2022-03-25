@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.EntityFrameworkCore;
+using PlanetSalvator.Infrastructure;
+using PlanetSalvator.Infrastructure.Models.NaturalEvent;
+using PlanetSalvator.Infrastructure.Services;
 using PlanetSalvator.Server.Data;
 using PlanetSalvator.Server.Models;
 using Microsoft.AspNetCore.Identity;
@@ -24,6 +26,8 @@ builder.Services.AddAuthentication()
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
+
+builder.Services.AddScoped(typeof(IWebDataFetcher<NaturalEvent>), typeof(NaturalEventsFetcherService));
 
 var app = builder.Build();
 
