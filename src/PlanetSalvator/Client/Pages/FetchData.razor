@@ -3,12 +3,17 @@
 @using Microsoft.AspNetCore.Components.WebAssembly.Authentication
 @using PlanetSalvator.Infrastructure.Models.NaturalEvent
 @using PlanetSalvator.Shared
+
+@using PlanetSalvator.ComponentsLibrary;
+
 @attribute [Authorize]
 @inject HttpClient Http
 
 <PageTitle>Weather forecast</PageTitle>
 
 <h1>Weather forecast</h1>
+
+<AuthenticationRegisterForm/>
 
 <p>This component demonstrates fetching data from the server.</p>
 
@@ -48,7 +53,42 @@ else
     {
         try
         {
-            forecasts = await Http.GetFromJsonAsync<NaturalEvent[]>("WeatherForecast");
+            /*
+             * public partial class NaturalEvent
+    : FetchableData
+{
+    [JsonProperty("title")]
+    public string Title { get; set; }
+
+    [JsonProperty("description")]
+    public string Description { get; set; }
+
+    [JsonProperty("link")]
+    public Uri Link { get; set; }
+
+    [JsonProperty("events")]
+    public List<Event> Events { get; set; }
+}             */
+
+            forecasts = new NaturalEvent[]
+            {
+                new NaturalEvent
+                {
+                    Title = "Asteroid",
+                    Description = "Asteroid",
+                    Link = new Uri("https://www.google.com"),
+                    Events = new List<Event>
+                    {
+                        new Event
+                        {
+                            Title = "Asteroid",
+                            Description = Description.Empty,
+                            Link = new Uri("https://www.google.com"),
+                        }
+                    }
+                },
+            };
+    //forecasts = await Http.GetFromJsonAsync<NaturalEvent[]>("WeatherForecast");
         }
         catch (AccessTokenNotAvailableException exception)
         {

@@ -9,10 +9,12 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="6.0.3" />
+    <PackageReference Include="Microsoft.Extensions.Http" Version="6.0.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.2" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\PlanetSalvator.ComponentsLibrary\PlanetSalvator.ComponentsLibrary.csproj" />
     <ProjectReference Include="..\..\PlanetSalvator.Infrastructure\PlanetSalvator.Infrastructure.csproj" />
     <ProjectReference Include="..\Client\PlanetSalvator.Client.csproj" />
     <ProjectReference Include="..\Shared\PlanetSalvator.Shared.csproj" />
@@ -28,6 +30,10 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Components\AuthenticationRegisterForm.razor" />
   </ItemGroup>
 
 </Project>
