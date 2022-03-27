@@ -1,3 +1,7 @@
+// Copyright (c) Alexis Chân Gridel. All Rights Reserved.
+// Licensed under the GNU General Public License v3.0.
+// See the LICENSE file in the project root for more information.
+
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.EntityFrameworkCore;
 using PlanetSalvator.Infrastructure;
@@ -5,7 +9,6 @@ using PlanetSalvator.Infrastructure.Models.NaturalEvent;
 using PlanetSalvator.Infrastructure.Services;
 using PlanetSalvator.Server.Data;
 using PlanetSalvator.Server.Models;
-using Microsoft.AspNetCore.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -28,6 +31,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
 
 builder.Services.AddScoped(typeof(IWebDataFetcher<NaturalEvent>), typeof(NaturalEventsFetcherService));
+builder.Services.AddHttpClient<NaturalEventsFetcherService>();
 
 var app = builder.Build();
 
