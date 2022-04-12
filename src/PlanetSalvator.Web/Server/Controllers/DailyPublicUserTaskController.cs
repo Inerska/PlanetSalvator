@@ -49,7 +49,7 @@ public class DailyPublicUserTaskController
     /// <param name="tasksCount">The count of daily tasks to retrieve.</param>
     /// <returns>The tasksCount daily tasks retrieved.</returns>
     [HttpGet]
-    public IActionResult GetDailyPublicUserTask([FromQuery] int tasksCount)
+    public IActionResult GetDailyPublicUserTask([FromQuery] int tasksCount = 3)
     {
         if (DailyTasks is { Count: 0 })
         {
