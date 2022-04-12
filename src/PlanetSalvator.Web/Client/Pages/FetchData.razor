@@ -3,7 +3,7 @@
 @using Microsoft.AspNetCore.Components.WebAssembly.Authentication
 @using PlanetSalvator.Web.Shared
 @attribute [Authorize]
-@inject HttpClient Http
+@inject HttpClient _http
 
 <PageTitle>Weather forecast</PageTitle>
 
@@ -44,7 +44,7 @@ else
     {
         try
         {
-            forecasts = await Http.GetFromJsonAsync<string[]>("DailyPublicUserTask");
+            forecasts = await _http.GetFromJsonAsync<string[]>("/api/DailyPublicUserTask?tasksCount=5");
         }
         catch (AccessTokenNotAvailableException exception)
         {

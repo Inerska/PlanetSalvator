@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using PlanetSalvator.Infrastructure.Extensions;
 
 [ApiController]
-[Route("[controller]")]
+[Route("/api/[controller]")]
 public class DailyPublicUserTaskController
     : Controller
 {
