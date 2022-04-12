@@ -8,3 +8,7 @@ node_modules
 app.db
 
 *.db
+
+*.db-wal
+
+*.db-shm
