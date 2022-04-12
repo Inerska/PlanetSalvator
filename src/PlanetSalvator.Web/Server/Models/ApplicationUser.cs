@@ -1,7 +1,8 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿namespace PlanetSalvator.Web.Server.Models;
 
-namespace PlanetSalvator.Web.Server.Models;
+using Microsoft.AspNetCore.Identity;
 
-public class ApplicationUser : IdentityUser
+public class ApplicationUser
+    : IdentityUser
 {
 }
