@@ -4,3 +4,7 @@ obj
 bin
 node_modules
 /src/PlanetSalvator.IdentityProvider/tempkey.jwk
+
+app.db
+
+*.db
