@@ -10,15 +10,15 @@ public static class ReadOnlyEnumerableExtensions
 
     public static IEnumerable<T> Shuffle<T>(this IEnumerable<T> enumerable)
     {
-        var list = enumerable.ToList();
-        var n = list.Count;
-        while (n > 1)
+        var enumerableAsList = enumerable.ToList();
+        var listCount = enumerableAsList.Count;
+        while (listCount > 1)
         {
-            n--;
-            var k = Random.Next(n + 1);
-            (list[k], list[n]) = (list[n], list[k]);
+            listCount--;
+            var k = Random.Next(listCount + 1);
+            (enumerableAsList[k], enumerableAsList[listCount]) = (enumerableAsList[listCount], enumerableAsList[k]);
         }
 
-        return list;
+        return enumerableAsList;
     }
 }
