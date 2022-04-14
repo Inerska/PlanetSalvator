@@ -30,6 +30,8 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddRazorPages();
 
+builder.Services.AddAntDesign();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -59,7 +61,6 @@ app.UseIdentityServer();
 app.UseAuthentication();
 
 app.UseAuthorization();
-
 
 app.MapRazorPages();
 
