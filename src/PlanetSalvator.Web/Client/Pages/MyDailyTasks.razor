@@ -1,0 +1,20 @@
+@page "/MyDailyTasks"
+<h3>Vos missions quotidiennes</h3>
+
+@if (_dailyTasks is null
+     || !_dailyTasks.Any())
+{
+    <Empty Image="https://gw.alipayobjects.com/zos/antfincdn/ZHrcdLPrvN/empty.svg"
+           ImageStyle='@("height: 60px")'>
+        <DescriptionTemplate>
+            <span>Pas de missions... :(</span>
+        </DescriptionTemplate>
+    </Empty>
+}
+else
+{
+    @foreach (var dailyTask in _dailyTasks)
+    {
+        <TodoUnit Content="@dailyTask"/>
+    }
+}

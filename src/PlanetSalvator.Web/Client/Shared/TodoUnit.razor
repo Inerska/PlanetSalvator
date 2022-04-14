@@ -1,0 +1,19 @@
+@inject MessageService _message
+
+<div class="todo-item__ancestor">
+    <p>@Content</p>
+    <Popconfirm Title="Êtes-vous sûr d'avoir terminé cette mission ?"
+            OnConfirm="Confirm"
+            OkText="Oui"
+            CancelText="Non">
+        <Button type="primary" class="todo-item__button">Valider la mission</Button>
+    </Popconfirm>
+</div>
+
+@code{
+
+    private void Confirm()
+    {
+        _message.Success("Bien joué, encore une mission de terminée !");
+    }
+}

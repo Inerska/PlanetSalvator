@@ -1,0 +1,18 @@
+.todo-item__ancestor {
+    height: min-content;
+    width: min-content + 100px;
+    box-sizing: border-box;
+    padding: 1.2rem;
+    margin: 1rem;
+    box-shadow: 0 1px 2px 0 #bdffdf;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@media screen and (max-width: 600px) {
+    .todo-item__ancestor {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
