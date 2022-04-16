@@ -28,4 +28,11 @@ public partial class MyDailyTasks
             accessTokenNotAvailableException.Redirect();
         }
     }
+
+    public void DeleteTask(string task)
+    {
+        _dailyTasks = _dailyTasks.Where(t => t != task);
+
+        System.Diagnostics.Debug.WriteLine(task);
+    }
 }

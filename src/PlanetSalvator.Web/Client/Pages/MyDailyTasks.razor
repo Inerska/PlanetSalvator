@@ -15,6 +15,6 @@ else
 {
     @foreach (var dailyTask in _dailyTasks)
     {
-        <TodoUnit Content="@dailyTask"/>
+        <TodoUnit Content="@dailyTask" CompleteTask="DeleteTask"/>
     }
 }

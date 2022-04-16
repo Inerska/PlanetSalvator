@@ -11,5 +11,21 @@ public partial class TodoUnit
     [Parameter]
     public string? Content { get; set; }
 
-    [Parameter] public bool? IsDone { get; set; } = false;
+    [Parameter]
+    public bool? IsDone { get; set; } = false;
+
+    [Parameter]
+    public EventCallback<string> CompleteTask { get; set; }
+
+
+
+    private async Task Confirm()
+    {
+        _message.Success("Bien joué, encore une mission de terminée !");
+
+        await InvokeCompleteTaskAsync();
+    }
+    
+    private async Task InvokeCompleteTaskAsync()
+        => await CompleteTask.InvokeAsync(Content);
 }
