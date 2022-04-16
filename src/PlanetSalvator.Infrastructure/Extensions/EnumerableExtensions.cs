@@ -4,7 +4,7 @@
 
 namespace PlanetSalvator.Infrastructure.Extensions;
 
-public static class ReadOnlyEnumerableExtensions
+public static class EnumerableExtensions
 {
     private static readonly Random Random = new();
 
@@ -21,4 +21,7 @@ public static class ReadOnlyEnumerableExtensions
 
         return enumerableAsList;
     }
+    
+    public static bool IsNullOrEmpty<T>(this IEnumerable<T>? enumerable) 
+        => enumerable is null || !enumerable.Any();
 }
