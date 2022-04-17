@@ -21,6 +21,7 @@ public class DailyPublicUserTaskController
     /// Initializes a new instance of the <see cref="DailyPublicUserTaskController"/> class.
     /// </summary>
     /// <param name="logger"></param>
+    /// <param name="mediator"></param>
     public DailyPublicUserTaskController(
         ILogger<DailyPublicUserTaskController> logger,
         IMediator mediator)
@@ -37,13 +38,6 @@ public class DailyPublicUserTaskController
     [HttpGet]
     public async Task<IActionResult> GetDailyPublicUserTask([FromQuery] int tasksCount = 3)
     {
-        var tasks = (await _mediator.Send(new GetDailyTasksQuery(tasksCount))).ToList();
-
-        if (tasks.IsNullOrEmpty())
-        {
-            return NotFound();
-        }
-
-        return Ok(tasks.Shuffle().Take(tasksCount));
+        return Ok(await _mediator.Send(new GetDailyTasksQuery(tasksCount)));
     }
 }
