@@ -38,6 +38,6 @@ public record GetDailyTasksHandler
             return Task.FromResult(Enumerable.Empty<string>());
         }
 
-        return Task.FromResult(DailyTasks.Take(request.tasksCount));
+        return Task.FromResult(DailyTasks.Take(request.TasksCount));
     }
 }
