@@ -21,7 +21,9 @@ public static class EnumerableExtensions
 
         return enumerableAsList;
     }
-    
-    public static bool IsNullOrEmpty<T>(this IEnumerable<T>? enumerable) 
-        => enumerable is null || !enumerable.Any();
+
+    public static bool IsNullOrEmpty<T>(this IEnumerable<T>? enumerable)
+    {
+        return enumerable is null || !enumerable.Any();
+    }
 }

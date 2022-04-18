@@ -1,6 +1,6 @@
 .todo-item__ancestor {
     height: min-content;
-    width: min-content + 100px;
+    width: min-content+100px;
     box-sizing: border-box;
     padding: 1.2rem;
     margin: 1rem;
