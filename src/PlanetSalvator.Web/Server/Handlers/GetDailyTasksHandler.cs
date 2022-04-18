@@ -27,17 +27,13 @@ public record GetDailyTasksHandler
         "Faites une réduction de votre facture de gaz.",
         "Entretenez votre voiture, une voiture bien entretenue émet moins de fumées toxiques",
         "Séchez vos cheveux et habits naturellement à l'air libre.",
-        "Conduisez pas aujourd'hui, préférez la marche à pieds et le vélo, ça vous permettra de faire plus d'exercice."
+        "Conduisez pas aujourd'hui, préférez la marche à pieds et le vélo, ça vous permettra de faire plus d'exercice.",
     };
 
     public Task<IEnumerable<string>> Handle(GetDailyTasksQuery request, CancellationToken cancellationToken)
     {
-        if (DailyTasks is null
-            || DailyTasks.Count == 0)
-        {
-            return Task.FromResult(Enumerable.Empty<string>());
-        }
-
-        return Task.FromResult(DailyTasks.Take(request.TasksCount));
+        // It's obvious that DailyTasks won't never be null, but let's simulate that the DailyTasks data are from an external source.
+        return Task.FromResult(DailyTasks.Take(request.TasksCount)
+                               ?? Enumerable.Empty<string>());
     }
 }

@@ -1,6 +1,25 @@
 ﻿@page "/Essentials-Tips"
-<h3>EssentialsTips</h3>
+@inherits EssentialTipsBase
 
-@code {
-    
+<h3>Vos astuces du jour !</h3>
+
+@if (EssentialTips is null
+     || !EssentialTips.Any())
+{
+    <Empty Image="https://gw.alipayobjects.com/zos/antfincdn/ZHrcdLPrvN/empty.svg"
+           ImageStyle='@("height: 60px")'>
+        <DescriptionTemplate>
+            <span>Pas d'astuces aujourd'hui... :(</span>
+        </DescriptionTemplate>
+    </Empty>
+}
+else
+{
+    <AntList Grid="GridType" DataSource="EssentialTips">
+        <ListItem>
+            <Card Hoverable Style="width: 239px" Cover="@GetCoverTemplate(context.ImageUri)">
+                <CardMeta Title="@context.Title" Description="@GetShortedDescription(context.Description)"/>
+            </Card>
+        </ListItem>
+    </AntList>
 }
