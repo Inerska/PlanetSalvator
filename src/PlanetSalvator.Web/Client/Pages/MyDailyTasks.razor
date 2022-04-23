@@ -1,5 +1,8 @@
 @page "/MyDailyTasks"
+@using Microsoft.AspNetCore.Authorization
 <h3>Vos missions quotidiennes</h3>
+
+@attribute [Authorize]
 
 @if (_dailyTasks is null
      || !_dailyTasks.Any())
