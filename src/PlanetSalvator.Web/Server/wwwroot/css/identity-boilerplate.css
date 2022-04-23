@@ -1,0 +1,43 @@
+﻿@import url('https://cdn.rawgit.com/mfd/09b70eb47474836f25a21660282ce0fd/raw/e06a670afcb2b861ed2ac4a1ef752d062ef6b46b/Gilroy.css');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+h1, h2, h3, p, a, button, li, td, th {
+    font-family: 'Gilroy', sans-serif;
+}
+
+html, body{
+    height: 100% !important;
+    
+    overflow: hidden;
+}
+
+.login,
+.image {
+    min-height: 100vh
+}
+
+.bg-image{
+    background-image: url('https://images.unsplash.com/photo-1528122819723-9dca3a31295d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=688&q=80');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+@media (max-width: 575.98px) {
+    body {
+        background-image: url('https://images.unsplash.com/photo-1528122819723-9dca3a31295d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=688&q=80') !important;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+}
+
+.container > .row > .col > p{
+    color: white;
+}
