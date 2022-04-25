@@ -1,4 +1,5 @@
-﻿@inject SignInManager<ApplicationUser> _signInManager
+﻿@using PlanetSalvator.Web.Shared
+@inject SignInManager<ApplicationUser> _signInManager
 @{
     var hasExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).Any();
 }
