@@ -5,10 +5,12 @@
 namespace PlanetSalvator.Web.Server.Handlers;
 
 using MediatR;
+using PlanetSalvator.Infrastructure.Extensions;
+using PlanetSalvator.Web.Server.Data;
 using PlanetSalvator.Web.Server.Queries;
+using PlanetSalvator.Web.Shared;
 
-public record GetDailyTasksHandler
-    : IRequestHandler<GetDailyTasksQuery, IEnumerable<string>>
+public record GetDailyTasksHandler(ApplicationDbContext Context) : IRequestHandler<GetDailyTasksQuery, IEnumerable<DailyTask>>
 {
     private static readonly IReadOnlySet<string> DailyTasks = new HashSet<string>
     {
@@ -27,17 +29,15 @@ public record GetDailyTasksHandler
         "Faites une réduction de votre facture de gaz.",
         "Entretenez votre voiture, une voiture bien entretenue émet moins de fumées toxiques",
         "Séchez vos cheveux et habits naturellement à l'air libre.",
-        "Conduisez pas aujourd'hui, préférez la marche à pieds et le vélo, ça vous permettra de faire plus d'exercice."
+        "Conduisez pas aujourd'hui, préférez la marche à pieds et le vélo, ça vous permettra de faire plus d'exercice.",
     };
 
-    public Task<IEnumerable<string>> Handle(GetDailyTasksQuery request, CancellationToken cancellationToken)
+    public Task<IEnumerable<DailyTask>> Handle(GetDailyTasksQuery request, CancellationToken cancellationToken)
     {
-        if (DailyTasks is null
-            || DailyTasks.Count == 0)
-        {
-            return Task.FromResult(Enumerable.Empty<string>());
-        }
-
-        return Task.FromResult(DailyTasks.Take(request.TasksCount));
+        return Task.FromResult(DailyTasks.IsNullOrEmpty()
+                ? Enumerable.Empty<DailyTask>()
+                : DailyTasks.Select(x => new DailyTask(x, Guid.NewGuid())).
+                    Shuffle()
+                    .Take(request.TasksCount));
     }
 }

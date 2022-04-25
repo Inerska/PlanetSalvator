@@ -2,20 +2,22 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PlanetSalvator.Web.Server.Data;
 
 #nullable disable
 
-namespace PlanetSalvator.Web.Server.Data.Migrations
+namespace PlanetSalvator.Web.Server.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220424192439_AddGuidToDailyTask")]
+    partial class AddGuidToDailyTask
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder.HasAnnotation("ProductVersion", "6.0.3");
+            modelBuilder.HasAnnotation("ProductVersion", "6.0.4");
 
             modelBuilder.Entity("Duende.IdentityServer.EntityFramework.Entities.DeviceFlowCodes", b =>
                 {
@@ -290,7 +292,7 @@ namespace PlanetSalvator.Web.Server.Data.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("PlanetSalvator.Web.Server.Models.ApplicationUser", b =>
+            modelBuilder.Entity("PlanetSalvator.Web.Shared.ApplicationUser", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("TEXT");
@@ -363,6 +365,32 @@ namespace PlanetSalvator.Web.Server.Data.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
+            modelBuilder.Entity("PlanetSalvator.Web.Shared.DailyTask", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("ApplicationUserId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("ApplicationUserId1")
+                        .HasColumnType("TEXT");
+
+                    b.Property<Guid>("Guid")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Task")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ApplicationUserId1");
+
+                    b.ToTable("DailyTasks");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -374,7 +402,7 @@ namespace PlanetSalvator.Web.Server.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("PlanetSalvator.Web.Server.Models.ApplicationUser", null)
+                    b.HasOne("PlanetSalvator.Web.Shared.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -383,7 +411,7 @@ namespace PlanetSalvator.Web.Server.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("PlanetSalvator.Web.Server.Models.ApplicationUser", null)
+                    b.HasOne("PlanetSalvator.Web.Shared.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -398,7 +426,7 @@ namespace PlanetSalvator.Web.Server.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("PlanetSalvator.Web.Server.Models.ApplicationUser", null)
+                    b.HasOne("PlanetSalvator.Web.Shared.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -407,11 +435,25 @@ namespace PlanetSalvator.Web.Server.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("PlanetSalvator.Web.Server.Models.ApplicationUser", null)
+                    b.HasOne("PlanetSalvator.Web.Shared.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("PlanetSalvator.Web.Shared.DailyTask", b =>
+                {
+                    b.HasOne("PlanetSalvator.Web.Shared.ApplicationUser", "ApplicationUser")
+                        .WithMany("DailyTasks")
+                        .HasForeignKey("ApplicationUserId1");
+
+                    b.Navigation("ApplicationUser");
+                });
+
+            modelBuilder.Entity("PlanetSalvator.Web.Shared.ApplicationUser", b =>
+                {
+                    b.Navigation("DailyTasks");
                 });
 #pragma warning restore 612, 618
         }

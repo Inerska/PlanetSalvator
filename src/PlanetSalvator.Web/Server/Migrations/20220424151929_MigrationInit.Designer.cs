@@ -8,16 +8,16 @@ using PlanetSalvator.Web.Server.Data;
 
 #nullable disable
 
-namespace PlanetSalvator.Web.Server.Data.Migrations
+namespace PlanetSalvator.Web.Server.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220423121021_AddPointsAndGeo")]
-    partial class AddPointsAndGeo
+    [Migration("20220424151929_MigrationInit")]
+    partial class MigrationInit
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder.HasAnnotation("ProductVersion", "6.0.3");
+            modelBuilder.HasAnnotation("ProductVersion", "6.0.4");
 
             modelBuilder.Entity("Duende.IdentityServer.EntityFramework.Entities.DeviceFlowCodes", b =>
                 {
@@ -365,6 +365,29 @@ namespace PlanetSalvator.Web.Server.Data.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
+            modelBuilder.Entity("PlanetSalvator.Web.Server.Models.DailyTask", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("ApplicationUserId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("ApplicationUserId1")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Task")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ApplicationUserId1");
+
+                    b.ToTable("DailyTasks");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -414,6 +437,20 @@ namespace PlanetSalvator.Web.Server.Data.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("PlanetSalvator.Web.Server.Models.DailyTask", b =>
+                {
+                    b.HasOne("PlanetSalvator.Web.Server.Models.ApplicationUser", "ApplicationUser")
+                        .WithMany("DailyTasks")
+                        .HasForeignKey("ApplicationUserId1");
+
+                    b.Navigation("ApplicationUser");
+                });
+
+            modelBuilder.Entity("PlanetSalvator.Web.Server.Models.ApplicationUser", b =>
+                {
+                    b.Navigation("DailyTasks");
                 });
 #pragma warning restore 612, 618
         }
