@@ -4,20 +4,22 @@
 
 @attribute [Authorize]
 
+<Button type="@ButtonType.Primary" @onclick="FillDailyTasksAsync">Simuler cron-job journalier</Button>
+
 @if (_dailyTasks is null
      || !_dailyTasks.Any())
 {
     <Empty Image="https://gw.alipayobjects.com/zos/antfincdn/ZHrcdLPrvN/empty.svg"
            ImageStyle='@("height: 60px")'>
         <DescriptionTemplate>
-            <span>Pas de missions... :(</span>
+            <span>Vous avez déjà rempli toutes vos missions :D</span>
         </DescriptionTemplate>
     </Empty>
 }
 else
 {
-    @foreach (var dailyTask in _dailyTasks)
+    foreach (var dailyTask in _dailyTasks)
     {
-        <TodoUnit Content="@dailyTask" CompleteTask="DeleteTask"/>
+        <TodoUnit DailyTask="dailyTask" CompleteTask="CompleteTask"/>
     }
 }
