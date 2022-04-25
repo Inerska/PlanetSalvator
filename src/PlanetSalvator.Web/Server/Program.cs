@@ -7,7 +7,8 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.EntityFrameworkCore;
 using PlanetSalvator.Web.Server.Data;
 using PlanetSalvator.Web.Server.Handlers;
-using PlanetSalvator.Web.Server.Models;
+using PlanetSalvator.Web.Server.Services;
+using PlanetSalvator.Web.Shared;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -31,6 +32,9 @@ builder.Services.AddControllersWithViews();
 
 // Add mediator handlers to the container.
 builder.Services.AddMediatR(typeof(GetDailyTasksHandler).Assembly);
+
+// Add services
+builder.Services.AddScoped<IdentityUserServices>();
 
 builder.Services.AddRazorPages();
 

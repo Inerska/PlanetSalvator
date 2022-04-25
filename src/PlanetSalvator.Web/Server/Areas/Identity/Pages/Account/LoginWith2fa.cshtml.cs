@@ -1,5 +1,8 @@
 ﻿// Licensed to the .NET Foundation under one or more agreements.
 // The .NET Foundation licenses this file to you under the MIT license.
+
+using PlanetSalvator.Web.Shared;
+
 namespace PlanetSalvator.Web.Server.Areas.Identity.Pages.Account
 {
 #nullable disable
@@ -11,7 +14,6 @@ namespace PlanetSalvator.Web.Server.Areas.Identity.Pages.Account
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.AspNetCore.Mvc.RazorPages;
     using Microsoft.Extensions.Logging;
-    using PlanetSalvator.Web.Server.Models;
 
     public class LoginWith2faModel : PageModel
     {

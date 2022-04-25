@@ -1,25 +1,26 @@
 ﻿@page
+@using Microsoft.AspNetCore.Authorization
 @model LoginModel
 
 @{
-    ViewData["Title"] = "Log in";
+    ViewData["Title"] = "Connexion";
 }
 
 <h1>@ViewData["Title"]</h1>
 <form id="account" method="post">
-    <h2>Use a local account to log in.</h2>
+    <h2>Vous nous avez manqué !</h2>
     <hr/>
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
     <div class="form-floating">
-        <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true"/>
-        <label asp-for="Input.Email" class="form-label"></label>
+        <input asp-for="Input.Email" placeholder="Adresse email" class="ant-input" autocomplete="username" aria-required="true"/>
         <span asp-validation-for="Input.Email" class="text-danger"></span>
     </div>
+    <br/>
     <div class="form-floating">
-        <input asp-for="Input.Password" class="form-control" autocomplete="current-password" aria-required="true"/>
-        <label asp-for="Input.Password" class="form-label"></label>
+        <input asp-for="Input.Password" placeholder="Mot de passe" class="ant-input" autocomplete="current-password" aria-required="true"/>
         <span asp-validation-for="Input.Password" class="text-danger"></span>
     </div>
+    <br/>
     <div>
         <div class="checkbox">
             <label asp-for="Input.RememberMe" class="form-label">
@@ -29,17 +30,15 @@
         </div>
     </div>
     <div>
-        <button id="login-submit" type="submit" class="w-100 btn btn-lg btn-primary">Log in</button>
+        <button class="w-100 ant-btn ant-btn-primary" id="login-submit" type="submit">Se connecter</button>
     </div>
+    <br/>
     <div>
         <p>
-            <a id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a>
+            <a id="forgot-password" asp-page="./ForgotPassword">Mot de passe oublié ?</a>
         </p>
         <p>
-            <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register as a new user</a>
-        </p>
-        <p>
-            <a id="resend-confirmation" asp-page="./ResendEmailConfirmation">Resend email confirmation</a>
+            <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Créer un compte</a>
         </p>
     </div>
 </form>

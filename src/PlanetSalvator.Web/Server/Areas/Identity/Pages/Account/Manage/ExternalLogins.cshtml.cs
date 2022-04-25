@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using PlanetSalvator.Web.Server.Models;
+using PlanetSalvator.Web.Shared;
 
 namespace PlanetSalvator.Web.Server.Areas.Identity.Pages.Account.Manage
 {

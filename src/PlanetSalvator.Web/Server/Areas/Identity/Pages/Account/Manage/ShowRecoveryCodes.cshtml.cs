@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
-using PlanetSalvator.Web.Server.Models;
 
 namespace PlanetSalvator.Web.Server.Areas.Identity.Pages.Account.Manage
 {

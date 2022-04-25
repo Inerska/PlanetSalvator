@@ -1,10 +1,35 @@
 ﻿@page "/"
+@using Microsoft.AspNetCore.Authorization
+@using PlanetSalvator.Web.Shared
+@attribute [Authorize]
+
+@inject HttpClient _httpClient
+@inject AuthenticationStateProvider _authenticationStateProvider
 
 <PageTitle>Index</PageTitle>
 
 <h1>De retour ? Ne ratez pas vos statistiques !</h1>
 
 <h2>Vos points : </h2>
-<p>1200</p>
+<p>@Points</p>
 
 <h2>...</h2>
+
+@code
+{
+    public int Points { get; set; }
+    
+    protected override async Task OnInitializedAsync()
+    {
+        var authenticationState = await _authenticationStateProvider.GetAuthenticationStateAsync();
+        var user = authenticationState.User;
+        var email = user.Identity.Name;
+        
+        // Generate daily tasks
+        
+        // Wrap email in json object
+        
+        
+        Points = await _httpClient.GetFromJsonAsync<int>($"api/UserPoints?Email={email}");
+    }
+}
