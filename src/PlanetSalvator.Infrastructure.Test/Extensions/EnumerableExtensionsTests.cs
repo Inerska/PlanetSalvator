@@ -27,4 +27,13 @@ static class EnumerableExtensionsTests
 
         enumerable.IsNullOrEmpty().ShouldBeFalse();
     }
+
+    [Test]
+    public static void Enumerable_Should_Not_Get_Same_Value_Index_After_Being_Shuffle()
+    {
+        var enumerable = new List<int> { 1, 2, 3, 4, 5 };
+        var shuffled = enumerable.Shuffle();
+
+        shuffled.ShouldNotBe(enumerable);
+    }
 }
