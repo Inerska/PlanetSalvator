@@ -68,7 +68,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Extensions" />
     <Folder Include="Models" />
   </ItemGroup>
 

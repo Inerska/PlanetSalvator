@@ -1,5 +1,16 @@
 ﻿@page "/About"
-<h3>About</h3>
+
+@inject NavigationManager _navigationManager
+
+<Breadcrumb>
+    <BreadcrumbItem Href="/">
+        <Icon Type="home" />
+    </BreadcrumbItem>
+    <BreadcrumbItem Href="@_navigationManager.Uri">
+        About
+    </BreadcrumbItem>
+</Breadcrumb>
+<br/>
 
 @code {
 

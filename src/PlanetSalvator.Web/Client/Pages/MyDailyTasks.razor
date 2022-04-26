@@ -1,9 +1,22 @@
 @page "/MyDailyTasks"
 @using Microsoft.AspNetCore.Authorization
-<h3>Vos missions quotidiennes</h3>
+
+@inject NavigationManager _navigationManager
 
 @attribute [Authorize]
 
+<Breadcrumb>
+    <BreadcrumbItem Href="/">
+        <Icon Type="home" />
+    </BreadcrumbItem>
+    <BreadcrumbItem Href="@_navigationManager.Uri">
+        <Icon Type="tasks" />
+        My Daily Tasks
+    </BreadcrumbItem>
+</Breadcrumb>
+<br/>
+
+<h3>Vos missions quotidiennes</h3>
 <Button type="@ButtonType.Primary" @onclick="FillDailyTasksAsync">Simuler cron-job journalier</Button>
 
 @if (_dailyTasks is null

@@ -1,7 +1,5 @@
-﻿@page "/Essentials-Tips"
-@using Microsoft.AspNetCore.Authorization
-
-@attribute [Authorize]
+﻿@page "/Leaderboard"
+@using PlanetSalvator.Web.Shared
 
 @inject NavigationManager _navigationManager
 
@@ -10,12 +8,16 @@
         <Icon Type="home" />
     </BreadcrumbItem>
     <BreadcrumbItem Href="@_navigationManager.Uri">
-        <Icon Type="book" />
-        <span>Essentials</span>
+        Leaderboard
     </BreadcrumbItem>
 </Breadcrumb>
 <br/>
 
 @code {
+    public List<ApplicationUser> Users { get; set; }
+    
+    // Make a leaderboard of the top 10 users by Points
+    
+    // Retrieve all users
     
 }
