@@ -2,6 +2,8 @@
 // Licensed under the GNU General Public License v3.0.
 // See the LICENSE file in the project root for more information.
 
+using System.Linq;
+
 namespace PlanetSalvator.Infrastructure.Test.Extensions;
 
 using System.Collections.Generic;
@@ -35,5 +37,6 @@ static class EnumerableExtensionsTests
         var shuffled = enumerable.Shuffle();
 
         shuffled.ShouldNotBe(enumerable);
+        shuffled.ElementAt(0).ShouldNotBe(enumerable.ElementAt(0));
     }
 }
