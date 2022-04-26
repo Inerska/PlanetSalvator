@@ -21,7 +21,7 @@ public partial class TodoUnit
 
     private async Task Confirm()
     {
-        _message.Success("Bien joué, encore une mission de terminée !");
+        _message.Success($"Bien joué ! + {DailyTask.Points} points !");
         
         await CompleteTask.InvokeAsync(DailyTask);
     }
