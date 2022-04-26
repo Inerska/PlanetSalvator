@@ -12,6 +12,8 @@ public class DailyTask
 
     public string Task { get; set; }
 
+    public int Points { get; set; }
+
     public int ApplicationUserId { get; set; }
 
     public ApplicationUser ApplicationUser { get; set; }
@@ -20,5 +22,6 @@ public class DailyTask
     {
         this.Task = Task;
         this.Guid = guid;
+        this.Points = new Random().Next(10, 100);
     }
 }

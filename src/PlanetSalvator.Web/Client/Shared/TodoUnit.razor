@@ -1,11 +1,13 @@
 @inject MessageService _message
 
-<div class="todo-item__ancestor">
-    <p>@DailyTask.Task</p>
-    <Popconfirm Title="Êtes-vous sûr d'avoir terminé cette mission ?"
-            OnConfirm="Confirm"
-            OkText="Oui"
-            CancelText="Non">
-        <Button type="primary" class="todo-item__button">Valider la mission</Button>
-    </Popconfirm>
-</div>
+<BadgeRibbon Text="@(DailyTask.Points.ToString() + " points")" Color="#e4ed3b">
+    <div class="todo-item__ancestor">
+        <p>@DailyTask.Task</p>
+        <Popconfirm Title="Êtes-vous sûr d'avoir terminé cette mission ?"
+                    OnConfirm="Confirm"
+                    OkText="Oui"
+                    CancelText="Non">
+            <Button type="primary" class="todo-item__button">Valider la mission</Button>
+        </Popconfirm>
+    </div>
+</BadgeRibbon>
