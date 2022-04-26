@@ -51,8 +51,17 @@ public partial class MyDailyTasks
             await HttpClient.GetFromJsonAsync<IEnumerable<DailyTask>>($"/api/DailyPublicUserTask/byEmail?email={userEmail}");
     }
 
+    private async Task AddPointsToUserAsync(DailyTask task)
+    {
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var userEmail = authState.User.Identity.Name;
+
+        await HttpClient.PostAsJsonAsync($"/api/UserPoints?email={userEmail}&points={task.Points}", new StringContent(string.Empty));
+    }
+
     private async Task CompleteTask(DailyTask task)
     {
+        await AddPointsToUserAsync(task);
         await DeleteTaskAsync(task);
     }
 

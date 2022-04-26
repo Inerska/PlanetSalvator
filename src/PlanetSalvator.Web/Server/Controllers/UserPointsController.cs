@@ -2,6 +2,9 @@
 // Licensed under the GNU General Public License v3.0.
 // See the LICENSE file in the project root for more information.
 
+using PlanetSalvator.Web.Server.Commands;
+using PlanetSalvator.Web.Server.Handlers;
+
 namespace PlanetSalvator.Web.Server.Controllers;
 
 using MediatR;
@@ -43,6 +46,20 @@ public class UserPointsController
         {
             return NotFound();
         }
+
+        return Ok(result);
+    }
+
+    /// <summary>
+    ///
+    /// </summary>
+    /// <param name="Email"></param>
+    /// <param name="Points"></param>
+    /// <returns>A <see cref="Task{TResult}"/> representing the result of the asynchronous operation.</returns>
+    [HttpPost]
+    public async Task<IActionResult> AddPointsByEmail([FromQuery] string Email, [FromQuery] int Points)
+    {
+        var result = await _mediator.Send(new AddPointsQueryCommandByEmail(Email, Points));
 
         return Ok(result);
     }
