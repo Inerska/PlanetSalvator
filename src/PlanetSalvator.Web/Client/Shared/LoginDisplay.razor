@@ -6,8 +6,12 @@
 
 <AuthorizeView>
     <Authorized>
-        <a href="authentication/profile">Bonjour, @context.User.Identity?.Name!</a>
-        <button class="nav-link btn btn-link" @onclick="BeginSignOut">Se déconnecter</button>
+        <p class="text-white">@context.User.Identity.Name</p>
+        <Avatar Style="@($"background-color: {color}; vertical-align: middle;")" Size="large" class="py-2">
+            @context.User.Identity.Name[0]
+        </Avatar>
+        @*<a href="authentication/profile">Bonjour, @context.User.Identity?.Name!</a>
+        <button class="nav-link btn btn-link" @onclick="BeginSignOut">Se déconnecter</button>*@
     </Authorized>
     <NotAuthorized>
         <a href="authentication/register">S'enregistrer</a>
@@ -16,6 +20,10 @@
 </AuthorizeView>
 
 @code{
+
+    public string color { get; set; } = "#c4c4c4";
+    
+
     private async Task BeginSignOut(MouseEventArgs args)
     {
         await _signOutManager.SetSignOutState();
