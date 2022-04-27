@@ -6,15 +6,17 @@
 
 <AuthorizeView>
     <Authorized>
-        <div class="d-flex justify-content-center align-items-center h-auto">
-            <span class="d-flex flex-column justify-content-end">
-                <span class="text-white text-truncate">@context.User.Identity.Name</span>
-                <span class="text-white">10 points</span>
-            </span>
-            <Avatar Style="@($"background-color: {color}; vertical-align: middle;")" Size="large">
-                @context.User.Identity.Name[0]
-            </Avatar>
-        </div>
+        <Popover OnVisibleChange="OnVisibleChange" Visible="_visible" ContentTemplate="_content" Title="Hello world" Trigger="@(new AntDesign.Trigger[]{AntDesign.Trigger.Click})">
+            <div class="d-flex justify-content-center align-items-center h-auto hovered-color-blue container" role="button">
+                <span class="d-flex flex-column justify-content-end">
+                    <span class="text-white text-truncate">@context.User.Identity.Name</span>
+                    <span class="text-white text-truncate">250 points</span>
+                </span>
+                <Avatar Style="@($"background-color: {color}; vertical-align: middle;")" Size="large">
+                    @context.User.Identity.Name[0]
+                </Avatar>
+            </div>
+        </Popover>
     </Authorized>
 
     <NotAuthorized>
@@ -27,7 +29,16 @@
 
     public string color { get; set; } = "#c4c4c4";
 
-    
+
+    private RenderFragment _content =>
+        @<a @onclick="_=>this._visible = false">Close</a>;
+
+    private bool _visible = false;
+
+    private void OnVisibleChange(bool visible)
+    {
+        _visible = visible;
+    }
 
 
     private async Task BeginSignOut(MouseEventArgs args)
