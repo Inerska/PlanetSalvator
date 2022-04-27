@@ -9,7 +9,7 @@
         <div class="d-flex justify-content-center align-items-center h-auto">
             <span class="d-flex flex-column justify-content-end">
                 <span class="text-white text-truncate">@context.User.Identity.Name</span>
-                <span class="text-white">Autre information</span>
+                <span class="text-white">10 points</span>
             </span>
             <Avatar Style="@($"background-color: {color}; vertical-align: middle;")" Size="large">
                 @context.User.Identity.Name[0]
@@ -26,6 +26,8 @@
 @code {
 
     public string color { get; set; } = "#c4c4c4";
+
+    
 
 
     private async Task BeginSignOut(MouseEventArgs args)
