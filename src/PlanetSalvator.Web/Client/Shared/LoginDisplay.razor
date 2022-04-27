@@ -2,7 +2,9 @@
 @using Microsoft.AspNetCore.Components.WebAssembly.Authentication
 
 @inject NavigationManager _navigation
+@inject AuthenticationStateProvider _authenticationStateProvider
 @inject SignOutSessionStateManager _signOutManager
+@inject HttpClient _httpClient
 
 <AuthorizeView>
     <Authorized>
@@ -10,7 +12,7 @@
             <div class="d-flex justify-content-center align-items-center h-auto hovered-color-blue container" role="button">
                 <span class="d-flex flex-column justify-content-end">
                     <span class="text-white text-truncate">@context.User.Identity.Name</span>
-                    <span class="text-white text-truncate">250 points</span>
+                    <span class="text-white text-truncate">@Points points</span>
                 </span>
                 <Avatar Style="@($"background-color: {color}; vertical-align: middle;")" Size="large">
                     @context.User.Identity.Name[0]
@@ -28,12 +30,20 @@
 @code {
 
     public string color { get; set; } = "#c4c4c4";
+    public int Points { get; set; } = -1;
 
 
     private RenderFragment _content =>
         @<a @onclick="_=>this._visible = false">Close</a>;
 
     private bool _visible = false;
+
+    protected async override Task OnInitializedAsync(){
+        var authenticatedState = await _authenticationStateProvider.GetAuthenticationStateAsync();
+        var email = authenticatedState.User.Identity.Name;
+
+        Points = await _httpClient.GetFromJsonAsync<int>($"api/UserPoints?email={email}");
+    }
 
     private void OnVisibleChange(bool visible)
     {
