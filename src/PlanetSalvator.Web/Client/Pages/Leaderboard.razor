@@ -3,15 +3,20 @@
 
 @inject NavigationManager _navigationManager
 
-<Breadcrumb>
-    <BreadcrumbItem Href="/">
-        <Icon Type="home" />
-    </BreadcrumbItem>
-    <BreadcrumbItem Href="@_navigationManager.Uri">
-        Leaderboard
-    </BreadcrumbItem>
-</Breadcrumb>
-<br/>
+<PageHeader Class="site-page-header" Title="Classement"
+    Subtitle="Le but n'est pas de savoir qui est le meilleur, le but est de savoir en priorité si vous faites partis de ceux qui soutiennent le plus la planète.">
+    <PageHeaderBreadcrumb>
+        <Breadcrumb>
+            <BreadcrumbItem Href="/">
+                <Icon Type="home" />
+            </BreadcrumbItem>
+            <BreadcrumbItem Href="@_navigationManager.Uri">
+                <Icon Type="leaderboard" />
+                Classement
+            </BreadcrumbItem>
+        </Breadcrumb>
+    </PageHeaderBreadcrumb>
+</PageHeader>
 
 @code {
     public List<ApplicationUser> Users { get; set; }

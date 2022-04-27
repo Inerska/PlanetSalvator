@@ -5,17 +5,22 @@
 
 @inject NavigationManager _navigationManager
 
-<Breadcrumb>
-    <BreadcrumbItem Href="/">
-        <Icon Type="home" />
-    </BreadcrumbItem>
-    <BreadcrumbItem Href="@_navigationManager.Uri">
-        <Icon Type="book" />
-        <span>Essentials</span>
-    </BreadcrumbItem>
-</Breadcrumb>
-<br/>
+<PageHeader Class="site-page-header" Title="Mes missions quotidiennes"
+    Subtitle="Participez à des missions quotidiennes afin d'améliorer votre quotidien mais aussi celui de la planète. Remportez des points, et soyez le meilleur écologiste.">
+    <PageHeaderBreadcrumb>
+        <Breadcrumb>
+            <BreadcrumbItem Href="/">
+                <Icon Type="home" />
+            </BreadcrumbItem>
+            <BreadcrumbItem Href="@_navigationManager.Uri">
+                <Icon Type="book" />
+                <span>Essentials</span>
+            </BreadcrumbItem>
+        </Breadcrumb>
+    </PageHeaderBreadcrumb>
+</PageHeader>
+
 
 @code {
-    
+
 }

@@ -5,34 +5,36 @@
 
 @attribute [Authorize]
 
-<Breadcrumb>
-    <BreadcrumbItem Href="/">
-        <Icon Type="home" />
-    </BreadcrumbItem>
-    <BreadcrumbItem Href="@_navigationManager.Uri">
-        <Icon Type="tasks" />
-        My Daily Tasks
-    </BreadcrumbItem>
-</Breadcrumb>
-<br/>
+<PageHeader Class="site-page-header" Title="Mes missions quotidiennes"
+    Subtitle="Participez à des missions quotidiennes afin d'améliorer votre quotidien mais aussi celui de la planète. Remportez des points, et soyez le meilleur écologiste.">
+    <PageHeaderBreadcrumb>
+        <Breadcrumb>
+            <BreadcrumbItem Href="/">
+                <Icon Type="home" />
+            </BreadcrumbItem>
+            <BreadcrumbItem Href="@_navigationManager.Uri">
+                <Icon Type="tasks" />
+                My Daily Tasks
+            </BreadcrumbItem>
+        </Breadcrumb>
+    </PageHeaderBreadcrumb>
+</PageHeader>
 
-<h3>Vos missions quotidiennes</h3>
 <Button type="@ButtonType.Primary" @onclick="FillDailyTasksAsync">Simuler cron-job journalier</Button>
 
 @if (_dailyTasks is null
-     || !_dailyTasks.Any())
+|| !_dailyTasks.Any())
 {
-    <Empty Image="https://gw.alipayobjects.com/zos/antfincdn/ZHrcdLPrvN/empty.svg"
-           ImageStyle='@("height: 60px")'>
-        <DescriptionTemplate>
-            <span>Vous avez déjà rempli toutes vos missions :D</span>
-        </DescriptionTemplate>
-    </Empty>
+    <Empty Image="https://gw.alipayobjects.com/zos/antfincdn/ZHrcdLPrvN/empty.svg" ImageStyle='@("height: 60px")'>
+    <DescriptionTemplate>
+        <span>Vous avez déjà rempli toutes vos missions :D</span>
+    </DescriptionTemplate>
+</Empty>
 }
 else
 {
     foreach (var dailyTask in _dailyTasks)
     {
-        <TodoUnit DailyTask="dailyTask" CompleteTask="CompleteTask"/>
+        <TodoUnit DailyTask="dailyTask" CompleteTask="CompleteTask" />
     }
 }

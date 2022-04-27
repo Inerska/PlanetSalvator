@@ -33,8 +33,9 @@
     public int Points { get; set; } = -1;
 
 
-    private RenderFragment _content =>
-        @<a @onclick="_=>this._visible = false">Close</a>;
+    private RenderFragment _content =
+        @<p>Hello content</p>;
+        
 
     private bool _visible = false;
 
