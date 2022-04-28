@@ -2,6 +2,10 @@
     color: black !important;
 }
 
+.nav-item:hover{
+    background: #55b3ff1a !important;
+}
+
 @media (max-width: 768px) {
     .sidebar__nav--resp{
         display: none;
