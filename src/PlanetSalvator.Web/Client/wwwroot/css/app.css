@@ -16,6 +16,15 @@ h1, h2, h3, p, a, button, li, td, th {
     color: red;
 }
 
+@media (max-width: 1400px) {
+    .ant-page-header-heading-left {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: initial !important;
+    }
+}
+   
+
 #blazor-error-ui {
     background: lightyellow;
     bottom: 0;
