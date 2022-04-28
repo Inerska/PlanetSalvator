@@ -8,18 +8,78 @@
 
 <PageTitle>Index</PageTitle>
 
-<Breadcrumb>
-    <BreadcrumbItem Href="@_navigationManager.Uri">
-        <Icon Type="home" />
-    </BreadcrumbItem>
-</Breadcrumb>
-<br/>
+<Title>Planet Salvator</Title>
+<Paragraph>
+    Le projet Planet Salvator répond à la problématique de la protection de l'environement, et aspire comme dessein à la résolution de problèmes de pollution et du réchauffement climatique.
+    Planet Salvator est un projet open-source et est développé par Alexis Chân Gridel, et est soutenu par la communauté de développeurs de la communauté open-source à la suite du rendu pour la Bourse Coddity 2022.
+    Propulsé avec le framework Blazor et le framework .NET Core, c'est une application web en webassembly, hébergée sur ASP.NET Core.
+    La solution utilisée pour la gestion d'authentification est le framework Microsoft Identity Server 4, il utilise un serveur fournisseur d'identité permettant de gérer les utilisateurs et les applications.
+    C'est aussi un site progressif, permettant d'être utilisé comme une application native, vous pouvez retrouver un bouton afin d'installer l'application dans votre barre URL.
+</Paragraph>
+<Title Level="2">
+    Qui sommes-nous ?
+</Title>
+<Paragraph>
+    Je suis Alexis Chân Gridel, étudiant en première année de B.U.T. Informatique à l'Université de Technologie de Nancy-Charlemagne.
+    J'ai 19 ans, et j'aspire à être développeur sans converger sur une seule et unique ressource. Passioné par les technologies .NET, j'ai aujourd'hui tenté en concourant à la bourse Coddity, de mettre réellement la main à la pâte en tentant de créer un projet de type web application, utilisant un tout nouveau framework Blazor.
+    Blazor est une alternative aux frameworks populaires comme Angular ou React, il est un framework de rendu HTML, CSS et JavaScript, qui permet de créer des applications web modernes, en utilisant des technologies modernes comme WebAssembly, JavaScript, TypeScript, etc.
+    En analysant le code source, vous pourrez apercevoir que j'ai proscris l'utilisation de Javascript, et que le code a quasiment été rédigé entièrement en langage C#.
+    Mon seul et unique but est d'intégrer Microsoft et d'obtenir le MVP award.
+</Paragraph>
+<Title Level="3">
+    Planet Salvator et la Bourse Coddity
+</Title>
+<Paragraph>
+    Sur le thème du GIEC et du réchauffement climatique, la Bourse Coddity était pour moi une opportunité de développement, et de partager mon expérience avec la communauté, mais aussi de tenter de nouvelles choses! Complètement inexpérimenté dans le milieu web, j'ai décidé de m'investir dans le développement de ce projet, et de le rendre disponible à tous.
+    Je me suis laissé une bonne semaine dans le but de réfléchir à comment répondre la problématique, et l'idée d'une application web était celle qui me paraissait la plus pertinente, l'idée de faire un jeu m'est aussi passé par la tête, mais comment créer une prise de conscience quand la majorité de l'audience est là seulement pour le jeu ?
+    J'ai donc décidé de créer PlanetSalvator, une application web aspirant à être le point clé de la solution de la protection de l'environnement, et de la résolution de problèmes de pollution et du réchauffement climatique.
+    
+    Il est articulé de manière à:
+    <ul>
+        <li>Rassembler et apprendre de bonnes pratiques quotidiennes pour protéger la planète.</li>
+        <li>Se défier avec un Quiz pour prendre conscience de la pollution et du réchauffement climatique.</li>
+        <li>Structurer à base de points afin de gamifier l'expérience de l'application, en donnant envie aux utilisateurs de participer à la lutte pour le cliimat.</li>
+        <li>Faire de l'utilisateur l'acteur protagoniste de sa propre lutte.</li>
+        <li>Toucher toute audience confondue et non pas seulement les jeunes/très jeunes avec un jeu banal</li>
+    </ul>
+</Paragraph>
+<Divider />
 
 <Card Bordered="false" Title="Vos points" Style="width: 300px">
     <Body>
     <p>@Points</p>
     </Body>
 </Card>
+
+<div class="site-statistic-demo-card">
+    <Row Gutter="16">
+        <Col Span="12">
+        <Card>
+            <Statistic Title="Active" Value="11.28" Precision="2" ValueStyle="color: #3f8600;" Suffix="%">
+                <PrefixTemplate>
+                    <span><Icon Type="arrow-up" /></span>
+                </PrefixTemplate>
+            </Statistic>
+        </Card>
+        </Col>
+        <Col Span="12">
+        <Card>
+            <Statistic Title="Idle" Value="9.3" Precision="2" ValueStyle="color: #cf1322;" Suffix="%">
+                <PrefixTemplate>
+                    <span><Icon Type="arrow-down" /></span>
+                </PrefixTemplate>
+            </Statistic>
+        </Card>
+        </Col>
+    </Row>
+</div>
+
+<style>
+    .site-statistic-demo-card {
+        background: #ececec;
+        padding: 30px;
+    }
+</style>
 
 @code
 {
