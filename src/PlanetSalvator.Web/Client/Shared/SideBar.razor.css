@@ -1,4 +1,6 @@
-﻿.sidebar__nav--resp{}
+﻿a.nav-link.is-text-black.active{
+    color: black !important;
+}
 
 @media (max-width: 768px) {
     .sidebar__nav--resp{
