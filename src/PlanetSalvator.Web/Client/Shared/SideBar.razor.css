@@ -1,0 +1,7 @@
+﻿.sidebar__nav--resp{}
+
+@media (max-width: 768px) {
+    .sidebar__nav--resp{
+        display: none;
+    }
+}
