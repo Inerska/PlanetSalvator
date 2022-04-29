@@ -1,5 +1,6 @@
 @page "/quiz"
 @using Microsoft.AspNetCore.Authorization
+@using PlanetSalvator.Infrastructure.Extensions
 
 @inject NavigationManager _navigationManager
 
@@ -20,4 +21,14 @@
     </PageHeaderBreadcrumb>
 </PageHeader>
 
-<QuizUnit />
+@if (Quizzes.IsNullOrEmpty())
+{
+    <p>Loading...</p>
+}
+else
+{
+    foreach (var quiz in Quizzes)
+    {
+        <QuizUnit Quiz="quiz"/>
+    }
+}

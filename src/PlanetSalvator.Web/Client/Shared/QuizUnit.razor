@@ -1,9 +1,10 @@
-<h1>Combien de déchets sont jetés à la mer chaque jour ?</h1>
+@using PlanetSalvator.Web.Shared
+<h1>@Quiz.Question</h1>
 <div>
     <RadioGroup @bind-Value="@radioValue">
-        <Radio Style="@style" Value="@("A")">Option A</Radio>
-        <Radio Style="@style" Value="@("B")">Option B</Radio>
-        <Radio Style="@style" Value="@("C")">Option C</Radio>
+        <Radio Style="@style" Value="@("A")">@Quiz.AnswerA</Radio>
+        <Radio Style="@style" Value="@("B")">@Quiz.AnswerB</Radio>
+        <Radio Style="@style" Value="@("C")">@Quiz.AnswerC</Radio>
         <Radio Style="@style" Value="@("M")">
             More...
             @if (radioValue == "M")
@@ -18,6 +19,9 @@
 
 @code
 {
+    [Parameter]
+    public Quiz Quiz { get; set; }
+    
     string radioValue = "value";
     string style = "display: block;height:30px;line-height:30px";
 }
