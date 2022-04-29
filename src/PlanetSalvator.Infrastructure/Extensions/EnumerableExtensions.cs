@@ -24,4 +24,7 @@ public static class EnumerableExtensions
 
     public static bool IsNullOrEmpty<T>(this IEnumerable<T>? enumerable)
         => enumerable?.Any() != true;
+
+    public static IEnumerable<T> Sort<T>(this IEnumerable<T> enumerable, IComparer<T> comparer)
+        => enumerable.OrderBy(x => x, comparer);
 }
