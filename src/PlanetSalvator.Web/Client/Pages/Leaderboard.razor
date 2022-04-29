@@ -1,10 +1,14 @@
-﻿@page "/Leaderboard"
-@using PlanetSalvator.Web.Shared
+﻿@using PlanetSalvator.Web.Shared
+@using Microsoft.AspNetCore.Authorization
 
 @inject NavigationManager _navigationManager
+@inject HttpClient _httpClient
+
+@page "/leaderboard"
+@attribute [Authorize]
 
 <PageHeader Class="site-page-header" Title="Classement"
-    Subtitle="Le but n'est pas de savoir qui est le meilleur, le but est de savoir en priorité si vous faites partis de ceux qui soutiennent le plus la planète.">
+            Subtitle="Le but n'est pas de savoir qui est le meilleur, le but est de savoir en priorité si vous faites partis de ceux qui soutiennent le plus la planète.">
     <PageHeaderBreadcrumb>
         <Breadcrumb>
             <BreadcrumbItem Href="/">
@@ -18,11 +22,21 @@
     </PageHeaderBreadcrumb>
 </PageHeader>
 
+@foreach (var user in Users)
+{
+    <p>@user.NormalizedUserName</p>
+    <b>@user.Points points</b>
+    <Divider/>
+}
+
+
+
 @code {
     public List<ApplicationUser> Users { get; set; }
-    
-    // Make a leaderboard of the top 10 users by Points
-    
-    // Retrieve all users
-    
+
+    protected async override Task OnInitializedAsync()
+    {
+        Users = await _httpClient.GetFromJsonAsync<List<ApplicationUser>>("/api/LeaderBoard");
+    }
+
 }
