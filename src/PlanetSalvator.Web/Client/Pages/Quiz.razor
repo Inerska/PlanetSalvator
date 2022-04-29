@@ -1,3 +1,23 @@
 @page "/quiz"
+@using Microsoft.AspNetCore.Authorization
+
+@inject NavigationManager _navigationManager
+
+@attribute [Authorize]
+
+<PageHeader Class="site-page-header" Title="Quiz"
+            Subtitle="Testez vos connaissances et remportez des points.">
+    <PageHeaderBreadcrumb>
+        <Breadcrumb>
+            <BreadcrumbItem Href="/">
+                <Icon Type="home" />
+            </BreadcrumbItem>
+            <BreadcrumbItem Href="@_navigationManager.Uri">
+                <Icon Type="tasks" />
+                Quiz
+            </BreadcrumbItem>
+        </Breadcrumb>
+    </PageHeaderBreadcrumb>
+</PageHeader>
 
 <QuizUnit />
