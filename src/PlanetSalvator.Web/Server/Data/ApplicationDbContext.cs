@@ -2,6 +2,7 @@
 // Licensed under the GNU General Public License v3.0.
 // See the LICENSE file in the project root for more information.
 
+using PlanetSalvator.Web.Server.Migrations.Seeders.Initial;
 using PlanetSalvator.Web.Shared;
 
 namespace PlanetSalvator.Web.Server.Data;
@@ -22,5 +23,12 @@ public class ApplicationDbContext : ApiAuthorizationDbContext<ApplicationUser>
         IOptions<OperationalStoreOptions> operationalStoreOptions)
         : base(options, operationalStoreOptions)
     {
+    }
+
+    protected override void OnModelCreating(ModelBuilder builder)
+    {
+        base.OnModelCreating(builder);
+
+        builder.Seed();
     }
 }

@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PlanetSalvator.Web.Server.Data;
 
@@ -10,9 +11,10 @@ using PlanetSalvator.Web.Server.Data;
 namespace PlanetSalvator.Web.Server.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220429204555_ModelBuilderSeed")]
+    partial class ModelBuilderSeed
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.4");
@@ -454,7 +456,7 @@ namespace PlanetSalvator.Web.Server.Migrations
                             AnswerB = "Non",
                             Author = "Alexis Chân Gridel",
                             CorrectAnswer = "Oui",
-                            Points = 79,
+                            Points = 73,
                             Question = "L'air intérieur (dans les habitations) est-il plus ou moins pollué que l'air extérieur ?"
                         });
                 });
