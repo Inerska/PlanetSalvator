@@ -1,5 +1,6 @@
 ﻿@using PlanetSalvator.Web.Shared
 @using Microsoft.AspNetCore.Authorization
+@using PlanetSalvator.Infrastructure.Extensions
 
 @inject NavigationManager _navigationManager
 @inject HttpClient _httpClient
@@ -22,14 +23,19 @@
     </PageHeaderBreadcrumb>
 </PageHeader>
 
-@foreach (var user in Users)
+@if (Users.IsNullOrEmpty())
 {
-    <p>@user.NormalizedUserName</p>
-    <b>@user.Points points</b>
-    <Divider/>
+    <p>Chargement...</p>
 }
-
-
+else
+{
+    @foreach (var user in Users)
+    {
+        <p>@user.NormalizedUserName</p>
+        <b>@user.Points points</b>
+        <Divider/>
+    }
+}
 
 @code {
     public List<ApplicationUser> Users { get; set; }
