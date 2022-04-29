@@ -4,7 +4,9 @@
 
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using PlanetSalvator.Infrastructure.Extensions;
 using PlanetSalvator.Web.Server.Queries;
+using PlanetSalvator.Web.Shared.Comparers;
 
 namespace PlanetSalvator.Web.Server.Controllers;
 
@@ -30,7 +32,8 @@ public class LeaderBoardController
     {
         var leaderBoard = await _mediator.Send(new GetLeaderBoardQuery(leaderCount));
 
-        return Ok(leaderBoard);
+        // return leaderboard sorted by points using the class comparer ascending
+        return Ok(leaderBoard.Sort(new ApplicationUserComparer()));
     }
 
 }
