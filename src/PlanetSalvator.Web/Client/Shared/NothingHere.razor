@@ -1,0 +1,9 @@
+﻿<Result Status="404"
+        Title="404"
+        SubTitle="Désolé, il n'y a rien ici :("
+        Extra="_extra"/>
+
+@code
+{
+    RenderFragment _extra = @<a href="/"><Button Type="@ButtonType.Primary">Retourner à l'accueil</Button></a>;
+}
