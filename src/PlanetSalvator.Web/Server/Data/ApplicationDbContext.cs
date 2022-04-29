@@ -15,6 +15,8 @@ public class ApplicationDbContext : ApiAuthorizationDbContext<ApplicationUser>
 {
     public DbSet<DailyTask> DailyTasks { get; set; }
 
+    public DbSet<Quiz> Quizzes { get; set; }
+
     public ApplicationDbContext(
         DbContextOptions options,
         IOptions<OperationalStoreOptions> operationalStoreOptions)

@@ -392,6 +392,52 @@ namespace PlanetSalvator.Web.Server.Migrations
                     b.ToTable("DailyTasks");
                 });
 
+            modelBuilder.Entity("PlanetSalvator.Web.Shared.Quiz", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("AnswerA")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("AnswerB")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("AnswerC")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("AnswerD")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Author")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("CorrectAnswer")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Explanation")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("Points")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Question")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Quizzes");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
