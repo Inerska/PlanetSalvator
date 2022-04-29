@@ -38,11 +38,11 @@ else
 }
 
 @code {
-    public List<ApplicationUser> Users { get; set; }
+    private List<ApplicationUser> Users { get; set; }
 
-    protected async override Task OnInitializedAsync()
+    protected override async Task OnInitializedAsync()
     {
-        Users = await _httpClient.GetFromJsonAsync<List<ApplicationUser>>("/api/LeaderBoard");
+        Users = await _httpClient.GetFromJsonAsync<List<ApplicationUser>>("/api/LeaderBoard") ?? new List<ApplicationUser>();
     }
 
 }
