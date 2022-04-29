@@ -28,7 +28,7 @@ public class LeaderBoardController
     /// <param name="leaderCount"></param>
     /// <returns>A <see cref="Task{TResult}"/> representing the result of the asynchronous operation.</returns>
     [HttpGet]
-    public async Task<IActionResult> GetLeaderBoard([FromQuery] int leaderCount = 20)
+    public async Task<IActionResult> GetLeaderBoard([FromQuery] int leaderCount = 10)
     {
         var leaderBoard = await _mediator.Send(new GetLeaderBoardQuery(leaderCount));
 
