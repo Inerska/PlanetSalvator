@@ -9,11 +9,11 @@ using Microsoft.AspNetCore.Identity;
 public class ApplicationUser
     : IdentityUser
 {
-    public string FirstName { get; set; }
+    public string FirstName { get; set; } = "DEFAULT";
 
-    public string LastName { get; set; }
+    public string LastName { get; set; } = "DEFAULT";
 
-    public string AvatarPath { get; set; }
+    public string AvatarPath { get; set; } = "DEFAULT";
 
     public int Points { get; set; }
 
