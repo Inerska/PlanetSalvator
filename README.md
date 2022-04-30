@@ -39,6 +39,7 @@ Go to your browser at `https://localhost:7290` by default, (watch the console ou
 To run the html api generated documention you need to have DocFx in your machine, to install it please take a look at its documentation.
 Move to the root project path and then type :
 
-`$ docfx docfx_project\docfx.json --serve`
+`$ docfx init -q`                 
+`$ docfx docfx_project\docfx.json --serve`             
 
 and then go to your browser at `localhost:8080` to see the API documentation of the full project.
