@@ -6,21 +6,86 @@
 @inject NavigationManager _navigationManager
 
 <PageHeader Class="site-page-header" Title="Conseils et astuces"
-    Subtitle="Apprenez même la plus petite des astuces, commentez et soyez l'auteur même d'une astuce qui aidera plus d'un !">
+            Subtitle="Apprenez même la plus petite des astuces, commentez et soyez l'auteur même d'une astuce qui aidera plus d'un !">
     <PageHeaderBreadcrumb>
         <Breadcrumb>
             <BreadcrumbItem Href="/">
-                <Icon Type="home" />
+                <Icon Type="home"/>
             </BreadcrumbItem>
             <BreadcrumbItem Href="@_navigationManager.Uri">
-                <Icon Type="book" />
+                <Icon Type="book"/>
                 <span>Essentials</span>
             </BreadcrumbItem>
         </Breadcrumb>
     </PageHeaderBreadcrumb>
 </PageHeader>
 
+<div class="row">
+    <div class="col">
+        <Card Hoverable Style="" Cover="coverTemplate">
+            <AvatarGroup>
+                <Avatar Src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"/>
+            </AvatarGroup>
+            <CardMeta Title="Laver ses cheveux avec un shampoing naturel" Description="Lorem ipsum dolor sit amet, consectetur adipiscing elit..."/>
+        </Card>
+    </div>
+    <div class="col">
+        <Card Hoverable Style="" Cover="coverTemplate">
+            <CardMeta Title="Europe Street beat" Description="www.instagram.com"/>
+        </Card>
+    </div>
+</div>
 
-@code {
+<div class="row">
+    <div class="col">
+        <Card Hoverable Style="" Cover="coverTemplate">
+            <CardMeta Title="Europe Street beat" Description="www.instagram.com"/>
+        </Card>
+    </div>
+    <div class="col">
+        <Card Hoverable Style="" Cover="coverTemplate">
+            <CardMeta Title="Europe Street beat" Description="www.instagram.com"/>
+        </Card>
+    </div>
+    <div class="col">
+        <Card Hoverable Style="" Cover="coverTemplate">
+            <CardMeta Title="Europe Street beat" Description="www.instagram.com"/>
+        </Card>
+    </div>
+</div>
 
+<div class="row">
+    <div class="col">
+        <Card Hoverable Style="width: 240px" Cover="coverTemplate">
+            <AvatarGroup>
+                <Avatar Src="https://randomuser.me/api/portraits/men/60.jpg" />
+            </AvatarGroup>
+            <CardMeta Title="Europe Street beat" Description="www.instagram.com"/>
+        </Card>
+        <Card Hoverable Style="width: 240px" Cover="coverTemplate">
+            <AvatarGroup>
+                <Avatar Src="https://randomuser.me/api/portraits/men/46.pg" />
+            </AvatarGroup>
+            <CardMeta Title="Europe Street beat" Description="www.instagram.com"/>
+        </Card>
+    </div>
+    <div class="col">
+        <Card Hoverable Style="width: 240px" Cover="coverTemplate">
+                    <AvatarGroup>
+                        <Avatar Src="https://randomuser.me/api/portraits/men/29.jpg" />
+                    </AvatarGroup>
+                    <CardMeta Title="Europe Street beat" Description="www.instagram.com"/>
+                </Card>
+                <Card Hoverable Style="width: 240px" Cover="coverTemplate">
+                    <AvatarGroup>
+                        <Avatar Src="https://randomuser.me/api/portraits/men/15.pg" />
+                    </AvatarGroup>
+                    <CardMeta Title="Europe Street beat" Description="www.instagram.com"/>
+                </Card>
+    </div>
+</div>
+
+@code
+{
+    private RenderFragment coverTemplate =@<img alt="example"  src="vendors/plante.webp" />;
 }
