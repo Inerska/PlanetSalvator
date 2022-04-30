@@ -6,15 +6,9 @@
 @inject HttpClient _httpClient
 
 
-<div class="top-row ps-3">
-    <div class="container-fluid">
-        <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
-            <span class="navbar-toggler-icon text-black"></span>
-        </button>
-    </div>
-</div>
 <AuthorizeView>
     <Authorized>
+        <Button @onclick="BeginSignOut" Type="@ButtonType.Primary">Se déconnecter</Button>
         <Popover OnVisibleChange="OnVisibleChange" Visible="_visible" ContentTemplate="_content" Title="Hello world" Trigger="@(new[] {Trigger.Click})">
             <div class="d-flex justify-content-center align-items-center h-auto hovered-color-blue container" role="button" @onclick="_ => _visible = !_visible">
                 <span class="d-flex flex-column justify-content-end">
