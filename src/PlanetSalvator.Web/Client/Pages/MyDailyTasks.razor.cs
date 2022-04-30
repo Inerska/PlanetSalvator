@@ -63,6 +63,9 @@ public partial class MyDailyTasks
     {
         await AddPointsToUserAsync(task);
         await DeleteTaskAsync(task);
+        
+        // TODO: Est censé actualiser que le LoginDisplay component au lieu de la page complète
+        _navigationManager.NavigateTo(_navigationManager.Uri, true);
     }
 
     private async Task FillDailyTasksAsync()
