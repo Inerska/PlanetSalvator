@@ -1,28 +1,44 @@
 <h1 align="center">
   <br>
-  <a href="https://github.com/Inerska/Trixy"><img src="https://www.svgrepo.com/show/165197/earth.svg" height="256" width="256" alt="PlanetSalvator's icon"></a>
+  <a href="https://github.com/Inerska/PlanetSalvator"><img src="https://img.icons8.com/color/344/earth-planet.png" alt="Planet Salvator's logo"></a>
   <br>
-  PlanetSalvator 🎋
+  PlanetSalvator
   <br>
 </h1>
 
-<h4 align="center">An audacious name for an audacious project.</h4>
-<h5 align="center">Open-source, PWA powered, contribute and help the planet, our planet by performing missions and climbing the ranking of the top PlanetSalvator ecologist.</h5>
+<h4 align="center">A blazor WASM Asp.CORE hosted PWA application</h4>
+<h5 align="center">Modulable, open-source, powerful, educational and playful.</h5>
 
 
-  [![Contributors][contributors-shield]][contributors-url]
-  [![Forks][forks-shield]][forks-url]
-  [![Issues][issues-shield]][issues-url]
-  [![MIT License][license-shield]][license-url]
+<p align="center">
+  <a href="#overview">Overview</a>
+  •
+  <a href="#installation">Installation</a>
+</p>
+
+# Overview
+PlanetSalvator is a project built to make people be aware of climate changes issues, and to educate the youth. The project has been built as participation of the **Bourse Coddity** for 2022 <img src="https://coddity.com/favicon.ico">. It is powered with Blazor.NET and Web Assembly, the API server side is hosted with ASP.NET Core with Mediator pattern. The web application supports PWA (Progressive Web Application), PlanetSalvator is blazing fast as a native application, cool right ?
+The project supports a lot of activites to make people be aware of climate changes issues, there are questions in shape of Quizz, daily tasks, etc. Been in the mind of gamification, a point counter feature has been built with a leadertop page to make people more intersted within the project idea.
+
+# Installation              
+(You need to have .NET 6 in your machine to build/runs the project)                 
+To self-host PlanetSalvator in your machine you have to :        
+`$ dotnet tool install --global dotnet-ef` // Install Entity Framework Core tool for dotnet cli        
+`$ git clone https://github.com/Inerska/PlanetSalvator`                  
+`$ cd PlanetSalvator`                
+`$ cd src`             
+`$ cd PlanetSalvator.Web`              
+`$ cd Server`                
+`$ dotnet ef database update`    // Generate the tables for the generated Sqlite database                 
+`$ dotnet run`           
+
+Go to your browser at `https://localhost:7290` by default, (watch the console outputs).
 
 
-[contributors-shield]: https://img.shields.io/github/contributors/Inerska/PlanetSalvator.svg?style=for-the-badge
-[contributors-url]: https://github.com/Inerska/PlanetSalvator/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/Inerska/PlanetSalvator.svg?style=for-the-badge
-[forks-url]: https://github.com/Inerska/PlanetSalvator/network/members
-[stars-shield]: https://img.shields.io/github/stars/Inerska/PlanetSalvator.svg?style=for-the-badge
-[stars-url]: https://github.com/Inerska/PlanetSalvator/stargazers
-[issues-shield]: https://img.shields.io/github/issues/Inerska/PlanetSalvator.svg?style=for-the-badge
-[issues-url]: https://github.com/Inerska/PlanetSalvator/issues
-[license-shield]: https://img.shields.io/github/license/Inerska/PlanetSalvator.svg?style=for-the-badge
-[license-url]: https://github.com/Inerska/PlanetSalvator/blob/master/LICENSE.txt
+# Run the HTML API generated documentation 
+To run the html api generated documention you need to have DocFx in your machine, to install it please take a look at its documentation.
+Move to the root project path and then type :
+
+`$ docfx docfx_project\docfx.json --serve`
+
+and then go to your browser at `localhost:8080` to see the API documentation of the full project.
