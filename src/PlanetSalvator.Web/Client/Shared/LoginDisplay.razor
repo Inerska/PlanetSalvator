@@ -1,4 +1,5 @@
 ﻿@using Microsoft.AspNetCore.Components.WebAssembly.Authentication
+@using Microsoft.CodeAnalysis.CSharp.Syntax
 @inject NavigationManager _navigation
 @inject AuthenticationStateProvider _authenticationStateProvider
 @inject SignOutSessionStateManager _signOutManager
@@ -40,7 +41,11 @@
 
 
     private RenderFragment _content =
-        @<p>Hello content</p>;
+        @<div>
+            <p>Hello world</p>
+            <a href="/Settings"><Button Type="@ButtonType.Primary">Settings</Button></a>
+            @*<a href="/" class="btn btn-primary" @onclick="EventCallback.Factory.Create<MouseEventArgs>(this, args => BeginSignOut(args) ">Sign out</a>*@
+        </div>;
 
 
     private bool _visible = false;
