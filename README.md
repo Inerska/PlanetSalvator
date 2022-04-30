@@ -16,6 +16,8 @@
   <a href="#installation">Installation</a>
 </p>
 
+<img src="vendors/missions.png">
+
 # Overview
 PlanetSalvator is a project built to make people be aware of climate changes issues, and to educate the youth. The project has been built as participation of the **Bourse Coddity** for 2022 <img src="https://coddity.com/favicon.ico">. It is powered with Blazor.NET and Web Assembly, the API server side is hosted with ASP.NET Core with Mediator pattern. The web application supports PWA (Progressive Web Application), PlanetSalvator is blazing fast as a native application, cool right ?
 The project supports a lot of activites to make people be aware of climate changes issues, there are questions in shape of Quizz, daily tasks, etc. Been in the mind of gamification, a point counter feature has been built with a leadertop page to make people more intersted within the project idea.
