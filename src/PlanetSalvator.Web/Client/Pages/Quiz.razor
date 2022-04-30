@@ -3,7 +3,6 @@
 
 
 @inject NavigationManager _navigationManager
-@inject MessageService _messageService
 
 @attribute [Authorize]
 
@@ -31,29 +30,29 @@
     </Steps>
 
     <div class="steps-content">
-        @if (Quizzes.IsNullOrEmpty())
+        @if (IsQuizFinished())
         {
-            <p>Loading...</p>
+            @* Todo show result with answers and grade *@
+            @* TODO: Replace the static result message *@
+            
+            <Result Status="success"
+                    Title="Félicitations vous avez terminé le quiz !"
+                    SubTitle="Vous gagnez à la suite de ce quiz /TODO/ points">
+                <Extra>
+                    <a href="/"><Button Type="primary">Retournez à l'acceuil</Button></a>
+                </Extra>
+            </Result>
         }
         else
         {
-            <QuizUnit Quiz="Quizzes.ElementAt(0)"/>
-        }
-    </div>
-    <div class="steps-action">
-        @if (Current > 0)
-        {
-            <Button Type="primary" OnClick="OnPreClick">Previous</Button>
-        }
-        @if (Current < _steps.Length - 1)
-        {
-            <Button Type="primary" OnClick="OnNextClick">Next</Button>
-        }
-        @if (Current == _steps.Length - 1)
-        {
-            <Button Type="primary" OnClick=@(() => _messageService.Success("Processing complete!"))>
-                Done
-            </Button>
+            @if (Quizzes.IsNullOrEmpty())
+            {
+                <p>Loading...</p>
+            }
+            else
+            {
+                <QuizUnit QuizProp="Quizzes.ElementAt(QuizIndex)" QuizSubmit="CompleteQuiz"/>
+            }
         }
 
     </div>
@@ -70,39 +69,4 @@
         text-align: center;
         padding-top: 80px;
     }
-
-    .steps-action {
-        margin-top: 24px;
-    }
 </style>
-
-@code {
-
-    public class StepItem
-    {
-        public string Title { get; set; }
-        public string Content { get; set; }
-    }
-
-    private int Current { get; set; }
-
-    private readonly StepItem[] _steps =
-    {
-        new() {Title = "First", Content = "First-content"},
-        new() {Title = "Second", Content = "Second-content"},
-        new() {Title = "Third", Content = "Third-content"},
-        new() {Title = "Fourth", Content = "Last-content"},
-        new() {Title = "Fifth", Content = "Fifth-content"},
-    };
-
-    void OnPreClick()
-    {
-        Current--;
-    }
-
-    void OnNextClick()
-    {
-        Current++;
-    }
-
-}

@@ -1,28 +1,24 @@
-@using PlanetSalvator.Web.Shared
-<h1>@Quiz.Question</h1>
+<h1>@QuizProp.Question</h1>
 <div>
     <RadioGroup @bind-Value="@radioValue">
-        <Radio Style="@style" Value="@("A")">@Quiz.AnswerA</Radio>
-        <Radio Style="@style" Value="@("B")">@Quiz.AnswerB</Radio>
+        <Radio Style="@style" Value="@("A")">@QuizProp.AnswerA</Radio>
+        <Radio Style="@style" Value="@("B")">@QuizProp.AnswerB</Radio>
 
-        @if (Quiz.AnswerC is not null)
+        @if (QuizProp.AnswerC is not null)
         {
-            <Radio Style="@style" Value="@("C")">@Quiz.AnswerC</Radio>
+            <Radio Style="@style" Value="@("C")">@QuizProp.AnswerC</Radio>
         }
-        @if (Quiz.AnswerD is not null)
+        @if (QuizProp.AnswerD is not null)
         {
-            <Radio Style="@style" Value="@("D")">@Quiz.AnswerD</Radio>
+            <Radio Style="@style" Value="@("D")">@QuizProp.AnswerD</Radio>
         }
     </RadioGroup>
 </div>
 <br/>
-<Button Type="@ButtonType.Primary">Valider</Button>
+<Button Type="@ButtonType.Primary" @onclick="Submit">Valider</Button>
 
 @code
 {
-    [Parameter]
-    public Quiz Quiz { get; set; }
-
-    string radioValue = "value";
+    string radioValue = "A";
     readonly string style = "display: block;height:30px;line-height:30px";
 }
