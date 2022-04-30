@@ -45,7 +45,7 @@
         }
         else
         {
-            @if (Quizzes.IsNullOrEmpty())
+            @if (Quizzes is null || !Quizzes.Any())
             {
                 <p>Loading...</p>
             }

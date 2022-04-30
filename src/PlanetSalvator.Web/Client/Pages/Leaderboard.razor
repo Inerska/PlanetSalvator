@@ -1,6 +1,5 @@
 ﻿@using PlanetSalvator.Web.Shared
 @using Microsoft.AspNetCore.Authorization
-@using PlanetSalvator.Infrastructure.Extensions
 
 @inject NavigationManager _navigationManager
 @inject HttpClient _httpClient
@@ -23,7 +22,7 @@
     </PageHeaderBreadcrumb>
 </PageHeader>
 
-@if (Users.IsNullOrEmpty())
+@if (Users is null || !Users.Any())
 {
     <p>Chargement...</p>
 }

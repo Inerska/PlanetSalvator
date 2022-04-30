@@ -85,17 +85,12 @@
 {
     public int Points { get; set; }
 
-    protected async override Task OnAfterRenderAsync(bool firstRender)
+    protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         var authenticationState = await _authenticationStateProvider.GetAuthenticationStateAsync();
         var user = authenticationState.User;
         var email = user.Identity.Name;
-
-    // Generate daily tasks
-
-    // Wrap email in json object
-
-
+        
         Points = await _httpClient.GetFromJsonAsync<int>($"api/UserPoints?Email={email}");
     }
 }
