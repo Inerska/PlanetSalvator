@@ -4,14 +4,15 @@
     <RadioGroup @bind-Value="@radioValue">
         <Radio Style="@style" Value="@("A")">@Quiz.AnswerA</Radio>
         <Radio Style="@style" Value="@("B")">@Quiz.AnswerB</Radio>
-        <Radio Style="@style" Value="@("C")">@Quiz.AnswerC</Radio>
-        <Radio Style="@style" Value="@("M")">
-            More...
-            @if (radioValue == "M")
-            {
-                <AntDesign.Input type="text" TValue="string" />
-            }
-        </Radio>
+
+        @if (Quiz.AnswerC is not null)
+        {
+            <Radio Style="@style" Value="@("C")">@Quiz.AnswerC</Radio>
+        }
+        @if (Quiz.AnswerD is not null)
+        {
+            <Radio Style="@style" Value="@("D")">@Quiz.AnswerD</Radio>
+        }
     </RadioGroup>
 </div>
 <br/>
@@ -21,7 +22,7 @@
 {
     [Parameter]
     public Quiz Quiz { get; set; }
-    
+
     string radioValue = "value";
-    string style = "display: block;height:30px;line-height:30px";
+    readonly string style = "display: block;height:30px;line-height:30px";
 }
