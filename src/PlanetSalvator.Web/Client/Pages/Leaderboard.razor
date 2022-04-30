@@ -29,7 +29,7 @@
 }
 else
 {
-    @foreach (var user in Users)
+    @foreach (var user in Users.Where(user => user.Points != 0))
     {
         <p>@user.NormalizedUserName</p>
         <b>@user.Points points</b>
