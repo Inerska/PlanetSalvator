@@ -11,11 +11,12 @@
 h1, h2, h3, p, a, button, li, td, th {
     font-family: 'Gilroy', sans-serif;
 }
-
+/*
 html {
     cursor: none;
 }
 .cursor {
+    z-index: 99999;
     width: 50px;
     height: 50px;
     border-radius: 100%;
@@ -50,7 +51,7 @@ html {
     height: 50px;
     opacity: .5;
 }
-
+*/
 .validation-message {
     color: red;
 }
