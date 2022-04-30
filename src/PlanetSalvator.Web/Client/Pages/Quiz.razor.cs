@@ -2,8 +2,6 @@
 // Licensed under the GNU General Public License v3.0.
 // See the LICENSE file in the project root for more information.
 
-using PlanetSalvator.Infrastructure.Extensions;
-
 namespace PlanetSalvator.Web.Client.Pages;
 
 using System.Net.Http.Json;
@@ -37,7 +35,7 @@ public partial class Quiz
     /// <inheritdoc />
     protected override async Task OnInitializedAsync()
     {
-        var quizzes = (await Http.GetFromJsonAsync<IEnumerable<Web.Shared.Quiz>>("api/quiz")).Shuffle();
+        var quizzes = await Http.GetFromJsonAsync<IEnumerable<Web.Shared.Quiz>>("api/quiz");
 
         Quizzes = quizzes ?? new List<Web.Shared.Quiz>();
     }
